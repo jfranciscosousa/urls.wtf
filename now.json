@@ -1,6 +1,7 @@
 {
   "name": "me_url",
   "version": 2,
+  "alias": ["meurl.now.sh"],
   "builds": [
     {
       "src": "package.json",

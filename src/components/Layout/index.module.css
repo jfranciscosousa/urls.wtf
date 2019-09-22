@@ -1,0 +1,18 @@
+@import "../../styles/breakpoints.css";
+
+.root {
+  box-sizing: content-box;
+  padding: 32px;
+
+  @include Breakpoint-desktopOnly {
+    margin: 0 auto;
+  }
+
+  @include Breakpoint-tabletOnly {
+    margin: 0 auto;
+  }
+
+  @include Breakpoint-mobileOnly {
+    margin: 0 auto;
+  }
+}

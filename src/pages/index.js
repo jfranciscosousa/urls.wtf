@@ -25,7 +25,10 @@ function useNewUrlRequest() {
         500,
       );
     } catch (error) {
-      setState({ error: error.response.data, loading: false });
+      setTimeout(
+        () => setState({ error: error.response.data, loading: false }),
+        500,
+      );
     }
   }
 

@@ -28,7 +28,7 @@ module.exports = async function createUrl(incommingUrl) {
   const url = /^https{0,1}:\/\//.test(incommingUrl)
     ? incommingUrl
     : `https://${incommingUrl}`;
-  const isValidUrl = validateUrl(url);
+  const isValidUrl = await validateUrl(url);
 
   if (!isValidUrl) throw new Error("invalid_url");
 

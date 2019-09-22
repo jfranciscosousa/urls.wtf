@@ -1,21 +1,43 @@
-import React from "react";
-import Link from "gatsby-link";
+import React, { useState } from "react";
+import axios from "axios";
 
-import SEO from "root/components/SEO";
-import Header from "root/components/Header";
 import Layout from "root/components/Layout";
+import useForm from "root/shared/useForm";
+import apiUrl from "root/shared/apiUrl";
 
-const IndexPage = () => (
-  <div>
-    <SEO title="Home Page" />
-    <Header />
+import styles from "./index.module.css";
+
+const IndexPage = () => {
+  const [hash, setHash] = useState();
+  const { values, handleChange } = useForm();
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    const response = await axios.post(`${apiUrl}/new_url`, {
+      url: values.url,
+    });
+
+    setHash(`/u/${response.data.hash}`);
+  }
+
+  return (
     <Layout>
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <Link to="/page-2/">Go to page 2</Link>
+      <div className={styles.root}>
+        <h1>me_url</h1>
+
+        <p>minimalistic url shortener.</p>
+        <p>no tracking.</p>
+        <p>no ads.</p>
+
+        <form onSubmit={handleSubmit}>
+          <input name="url" value={values.url} onChange={handleChange} />
+        </form>
+
+        {hash ? <a href={apiUrl + hash}>{hash}</a> : null}
+      </div>
     </Layout>
-  </div>
-);
+  );
+};
 
 export default IndexPage;

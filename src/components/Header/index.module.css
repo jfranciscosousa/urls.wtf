@@ -1,4 +1,4 @@
-.header {
+.root {
   margin-bottom: 1.45rem;
 
   h1 {
@@ -6,14 +6,8 @@
   }
 }
 
-.inner {
-  max-width: 960px;
-  padding: 1.45rem 1.0875rem;
-  margin: 0 auto;
-}
-
 .link {
-  color: black !important;
+  color: white !important;
 
   text-decoration: none !important;
 }

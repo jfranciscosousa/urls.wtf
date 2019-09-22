@@ -14,9 +14,10 @@
       "src": "/new_url",
       "dest": "/api/index.js"
     },
-    { "src": "/(?<hash>[^/]+)", "dest": "/api/index.js" }
+    { "src": "/u/(?<hash>[^/]+)", "dest": "/api/index.js" }
   ],
   "env": {
-    "FAUNADB_SECRET": "@faunadb_secret"
+    "FAUNADB_SECRET": "@faunadb_secret",
+    "NODE_ENV": "production"
   }
 }

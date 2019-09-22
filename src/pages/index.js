@@ -9,22 +9,45 @@ import styles from "./index.module.css";
 
 const { location } = global;
 
-const IndexPage = () => {
-  const [hash, setHash] = useState();
+function useNewUrlRequest() {
+  const [state, setState] = useState({ loading: false });
+
+  async function makeRequest(url) {
+    try {
+      setState({ loading: true });
+
+      const response = await axios.post(`${apiUrl}/new_url`, {
+        url,
+      });
+
+      setState({ hash: `/u/${response.data.hash}`, loading: false });
+    } catch (error) {
+      setState({ error: error.response.data, loading: false });
+    }
+  }
+
+  return { state, makeRequest };
+}
+
+function HomePage() {
+  const {
+    state: { loading, error, hash },
+    makeRequest,
+  } = useNewUrlRequest();
   const { values, handleChange } = useForm();
 
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const response = await axios.post(`${apiUrl}/new_url`, {
-      url: values.url,
-    });
-
-    setHash(`/u/${response.data.hash}`);
+    await makeRequest(values.url);
   }
 
   return (
-    <Layout>
+    <Layout
+      title="me_url"
+      description="minimalistic url shortener"
+      keywords="url shortener open-source"
+    >
       <div className={styles.root}>
         <h1>me_url</h1>
 
@@ -33,19 +56,25 @@ const IndexPage = () => {
         <p>no ads.</p>
 
         <form onSubmit={handleSubmit}>
-          <input name="url" value={values.url} onChange={handleChange} />
+          <input name="url" value={values.url || ""} onChange={handleChange} />
 
-          <button type="submit">Go</button>
+          <button type="submit" disabled={loading}>
+            Go
+          </button>
         </form>
 
-        {hash ? (
+        {loading ? "shortening your url" : null}
+
+        {hash && !loading ? (
           <a href={apiUrl + hash}>
             {`${location.protocol}//${location.host}${hash}`}
           </a>
         ) : null}
+
+        {error}
       </div>
     </Layout>
   );
-};
+}
 
-export default IndexPage;
+export default HomePage;

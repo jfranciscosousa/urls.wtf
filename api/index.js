@@ -31,6 +31,13 @@ app.post("/new_url", async (req, res) => {
     res.send({ hash });
   } catch (error) {
     console.error("error", error);
+
+    if (error.message === "invalid_url") {
+      res.status(400).send(error.message);
+
+      return;
+    }
+
     res.status(500).send("fatal error, sorry if I caused you any trouble");
   }
 });
@@ -42,6 +49,13 @@ app.get("/u/:hash", async (req, res) => {
     res.redirect(url);
   } catch (error) {
     console.error("error", error);
+
+    if (error.message === "not_found") {
+      res.status(404).send(error.message);
+
+      return;
+    }
+
     res.status(500).send("fatal error, sorry if I caused you any trouble");
   }
 });

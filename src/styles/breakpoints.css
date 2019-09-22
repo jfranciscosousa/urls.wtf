@@ -1,4 +1,4 @@
-$Breakpoint-mobile: 986px;
+$Breakpoint-mobile: 600px;
 $Breakpoint-desktop: 1268px;
 
 @mixin Breakpoint-mobileOnly {

@@ -1,5 +1,6 @@
 const { GraphQLClient } = require("graphql-request");
 const secureRandom = require("secure-random-string");
+const validateUrl = require("./utils/validateUrl");
 
 const endpoint = "https://graphql.fauna.com/graphql";
 
@@ -23,7 +24,14 @@ async function findExistentHash(url) {
   return data.hashedUrlFromUrl && data.hashedUrlFromUrl.hash;
 }
 
-module.exports = async function createUrl(url) {
+module.exports = async function createUrl(incommingUrl) {
+  const url = /^https{0,1}:\/\//.test(incommingUrl)
+    ? incommingUrl
+    : `https://${incommingUrl}`;
+  const isValidUrl = validateUrl(url);
+
+  if (!isValidUrl) throw new Error("invalid_url");
+
   const existentHash = await findExistentHash(url);
 
   if (existentHash) return existentHash;

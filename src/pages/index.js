@@ -7,6 +7,8 @@ import apiUrl from "root/shared/apiUrl";
 
 import styles from "./index.module.css";
 
+const { location } = global;
+
 const IndexPage = () => {
   const [hash, setHash] = useState();
   const { values, handleChange } = useForm();
@@ -32,9 +34,15 @@ const IndexPage = () => {
 
         <form onSubmit={handleSubmit}>
           <input name="url" value={values.url} onChange={handleChange} />
+
+          <button type="submit">Go</button>
         </form>
 
-        {hash ? <a href={apiUrl + hash}>{hash}</a> : null}
+        {hash ? (
+          <a href={apiUrl + hash}>
+            {`${location.protocol}//${location.host}${hash}`}
+          </a>
+        ) : null}
       </div>
     </Layout>
   );

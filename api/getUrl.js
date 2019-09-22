@@ -19,5 +19,7 @@ module.exports = async function getUrl(hash) {
 
   const data = await graphQLClient.request(query);
 
-  return data.hashedUrlFromHash && data.hashedUrlFromHash.url;
+  if (!data.hashedUrlFromHash) throw new Error("not_found");
+
+  return data.hashedUrlFromHash.url;
 };

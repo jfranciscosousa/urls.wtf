@@ -3,16 +3,22 @@
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
 const express = require("express");
+const apicache = require("apicache");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const createUrl = require("./createUrl");
 const getUrl = require("./getUrl");
 
+apicache.options({
+  appendKey: (req, _res) => req.body.url,
+});
+
 const app = express();
 
-app.use(bodyParser.json());
-
+const cache = apicache.middleware;
 const port = 5000;
+
+app.use(bodyParser.json());
 
 app.listen(port, () => {
   console.log(`Server is booming on port 5000 Visit http://localhost:5000`);
@@ -23,7 +29,7 @@ if (process.env.NODE_ENV !== "production") {
   app.options("*", cors());
 }
 
-app.post("/new_url", async (req, res) => {
+app.post("/new_url", cache("1 day"), async (req, res) => {
   try {
     const { url } = req.body;
     const hash = await createUrl(url);
@@ -42,7 +48,7 @@ app.post("/new_url", async (req, res) => {
   }
 });
 
-app.get("/u/:hash", async (req, res) => {
+app.get("/u/:hash", cache("1 day"), async (req, res) => {
   try {
     const url = await getUrl(req.params.hash);
 

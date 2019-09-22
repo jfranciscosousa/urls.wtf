@@ -14,9 +14,5 @@ export const onClientEntry = async () => {
     await import("core-js/es6/set");
   }
 
-  if (typeof window.requestAnimationFrame === "undefined") {
-    import("raf/polyfill");
-  }
-
   await import("babel-polyfill");
 };

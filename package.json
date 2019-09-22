@@ -14,6 +14,9 @@
     "type": "git",
     "url": "https://github.com/jfranciscosousa/me_url"
   },
+  "engines": {
+    "node": "10.16.x"
+  },
   "scripts": {
     "dev": "gatsby develop",
     "build": "gatsby build",
@@ -21,9 +24,13 @@
     "lint-styles": "stylelint \"src/**/*.css\" \"src/**/*.scss\""
   },
   "dependencies": {
+    "@now/node": "^1.0.0",
     "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.19.0",
     "core-js": "^3.2.1",
     "eslint-plugin-prettier": "^3.1.1",
+    "express": "^4.17.1",
+    "faunadb": "^2.8.1",
     "gatsby": "^2.15.17",
     "gatsby-image": "^2.2.19",
     "gatsby-link": "^2.2.13",
@@ -35,14 +42,16 @@
     "gatsby-plugin-sitemap": "^2.2.13",
     "gatsby-source-filesystem": "^2.1.23",
     "gatsby-transformer-sharp": "^2.2.14",
+    "graphql-request": "^1.8.2",
     "intersection-observer": "^0.7.0",
+    "now": "^16.2.0",
     "postcss-import": "^12.0.1",
     "precss": "^4.0.0",
     "prop-types": "^15.7.2",
-    "raf": "^3.4.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "secure-random-string": "^1.1.2"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",

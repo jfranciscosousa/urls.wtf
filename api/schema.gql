@@ -1,0 +1,10 @@
+type HashedUrl {
+  url: String! @unique
+  hash: String! @unique
+}
+
+type Query {
+  allHashedUrls: [HashedUrl]
+  hashedUrlFromHash(hash: String!): HashedUrl
+  hashedUrlFromUrl(url: String!): HashedUrl
+}

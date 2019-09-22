@@ -1,0 +1,22 @@
+{
+  "name": "me_url",
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": { "distDir": "public" }
+    },
+    { "src": "api/index.js", "use": "@now/node-server" }
+  ],
+  "routes": [
+    {
+      "src": "/new_url",
+      "dest": "/api/index.js"
+    },
+    { "src": "/(?<hash>[^/]+)", "dest": "/api/index.js" }
+  ],
+  "env": {
+    "FAUNADB_SECRET": "@faunadb_secret"
+  }
+}

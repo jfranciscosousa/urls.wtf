@@ -20,14 +20,6 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     {
-      resolve: "gatsby-plugin-google-analytics",
-      options: {
-        trackingId: "trackingIDhere",
-        head: true,
-        anonymize: true,
-      },
-    },
-    {
       resolve: "gatsby-plugin-root-import",
       options: {
         root: path.join(__dirname, "src"),

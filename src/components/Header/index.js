@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <header className={styles.root}>
       <Link to="/" className={styles.link}>
-        me_url
+        urls.wtf
       </Link>
     </header>
   );

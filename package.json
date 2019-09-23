@@ -1,9 +1,9 @@
 {
-  "name": "me_url",
+  "name": "urls.wtf",
   "description": "minimalist url shortener",
   "version": "1.0.0",
   "author": "Francisco Sousa",
-  "homepage": "https://github.com/jfranciscosousa/me_url",
+  "homepage": "https://github.com/jfranciscosousa/urls.wtf",
   "keywords": [
     "url",
     "shortener"
@@ -12,7 +12,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jfranciscosousa/me_url"
+    "url": "https://github.com/jfranciscosousa/urls.wtf"
   },
   "engines": {
     "node": "10.16.x"

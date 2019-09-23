@@ -2,8 +2,8 @@ const path = require("path");
 
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://me_url.jarvas.club",
-    title: "me_url",
+    siteUrl: "https://urls.wtf",
+    title: "urls.wtf",
     author: "Francisco Sousa",
     description: "minimalist url shortener",
   },

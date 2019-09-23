@@ -50,12 +50,12 @@ function HomePage() {
 
   return (
     <Layout
-      title="me_url"
+      title="urls.wtf"
       description="minimalistic url shortener"
       keywords="url shortener open-source"
     >
       <div className={styles.root}>
-        <h1>me_url</h1>
+        <h1>urls.wtf</h1>
 
         <p>minimalistic url shortener.</p>
         <p>no tracking.</p>

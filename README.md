@@ -1,4 +1,4 @@
-# me_url
+# urls.wtf
 
 A minimalistic url shortener.
 

@@ -1,7 +1,7 @@
 {
   "name": "me_url",
   "version": 2,
-  "alias": ["meurl.now.sh"],
+  "alias": ["urls.wtf"],
   "builds": [
     {
       "src": "package.json",

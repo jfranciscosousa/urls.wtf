@@ -1,5 +1,17 @@
 import React from "react";
 
+/**
+ * Why does this script have basic `style` prop objects? Simple.
+ * With noscript css modules don't seem to work,
+ * or basically the html.js from gatsby doesn't have access
+ * to the css modules transformation.
+ *
+ * Nevertheless I don't care what the reason is, and this seems to work.
+ *
+ * If you are a Javascript hater, go away.
+ * You should't even reach this page if you are a regular person.
+ */
+
 const rootStyles = {
   position: "absolute",
   right: "0",

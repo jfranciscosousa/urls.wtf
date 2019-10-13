@@ -9,3 +9,40 @@ html,
 * {
   font-family: "Source Code Pro", monospace;
 }
+
+h1 {
+  margin-bottom: 4rem;
+
+  font-size: 3rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+button {
+  height: 100%;
+  padding: 0.6rem;
+  margin-left: 1rem;
+
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 2rem 0;
+
+  border-radius: 4px;
+}
+
+a {
+  color: white;
+}

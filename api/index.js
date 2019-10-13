@@ -9,17 +9,14 @@ const cors = require("cors");
 const createUrl = require("./createUrl");
 const getUrl = require("./getUrl");
 
+const app = express();
+const cache = apicache.middleware;
+const port = 5000 || process.env.PORT;
+
 apicache.options({
   appendKey: (req, _res) => req.body.url,
 });
-
-const app = express();
-
-const cache = apicache.middleware;
-const port = 5000;
-
 app.use(bodyParser.json());
-
 app.listen(port, () => {
   console.log(`Server is booming on port 5000 Visit http://localhost:5000`);
 });

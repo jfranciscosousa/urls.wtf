@@ -16,10 +16,10 @@ const rootStyles = {
   position: "absolute",
   right: "0",
   left: "0",
-  "z-index": "1",
+  zIndex: "1",
   width: "100vw",
   height: "100vh",
-  "background-color": "#2f353b",
+  backgroundColor: "#2f353b",
 };
 
 const centerStyles = {
@@ -30,7 +30,7 @@ const centerStyles = {
 };
 
 const pStyles = {
-  "margin-bottom": "2rem",
+  marginBottom: "2rem",
 };
 
 const aStyles = {

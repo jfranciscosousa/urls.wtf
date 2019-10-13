@@ -5,8 +5,6 @@ import Layout from "root/components/Layout";
 import useForm from "root/shared/useForm";
 import apiUrl from "root/shared/apiUrl";
 
-import styles from "./index.module.css";
-
 const { location } = global;
 
 function useNewUrlRequest() {
@@ -54,31 +52,29 @@ function HomePage() {
       description="minimalistic url shortener"
       keywords="url shortener open-source"
     >
-      <div className={styles.root}>
-        <h1>urls.wtf</h1>
+      <h1>urls.wtf</h1>
 
-        <p>minimalistic url shortener.</p>
-        <p>no tracking.</p>
-        <p>no ads.</p>
+      <p>minimalistic url shortener.</p>
+      <p>no tracking.</p>
+      <p>no ads.</p>
 
-        <form onSubmit={handleSubmit}>
-          <input name="url" value={values.url || ""} onChange={handleChange} />
+      <form onSubmit={handleSubmit}>
+        <input name="url" value={values.url || ""} onChange={handleChange} />
 
-          <button type="submit" disabled={loading}>
-            Go
-          </button>
-        </form>
+        <button type="submit" disabled={loading}>
+          Go
+        </button>
+      </form>
 
-        {loading ? "shortening your url" : null}
+      {loading ? "shortening your url" : null}
 
-        {hash && !loading ? (
-          <a href={apiUrl + hash}>
-            {`${location.protocol}//${location.host}${hash}`}
-          </a>
-        ) : null}
+      {hash && !loading ? (
+        <a href={apiUrl + hash}>
+          {`${location.protocol}//${location.host}${hash}`}
+        </a>
+      ) : null}
 
-        {error}
-      </div>
+      {error}
     </Layout>
   );
 }

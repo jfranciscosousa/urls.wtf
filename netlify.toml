@@ -1,0 +1,8 @@
+[build]
+  command = "yarn build"
+  functions = "functions"
+  publish = "public"
+
+[[redirects]]
+  from = "/u/*"
+  to = "/.netlify/functions/get_url?hash=:splat"

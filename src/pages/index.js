@@ -3,7 +3,6 @@ import axios from "axios";
 
 import Layout from "root/components/Layout";
 import useForm from "root/shared/useForm";
-import apiUrl from "root/shared/apiUrl";
 
 const { location } = global;
 
@@ -14,7 +13,7 @@ function useNewUrlRequest() {
     try {
       setState({ loading: true });
 
-      const response = await axios.post(`${apiUrl}/new_url`, {
+      const response = await axios.post("/.netlify/functions/create_url", {
         url,
       });
 
@@ -24,7 +23,7 @@ function useNewUrlRequest() {
       );
     } catch (error) {
       setTimeout(
-        () => setState({ error: error.response.data, loading: false }),
+        () => setState({ error: error.response.data.error, loading: false }),
         500,
       );
     }
@@ -69,9 +68,7 @@ function HomePage() {
       {loading ? "shortening your url" : null}
 
       {hash && !loading ? (
-        <a href={apiUrl + hash}>
-          {`${location.protocol}//${location.host}${hash}`}
-        </a>
+        <a href={hash}>{`${location.protocol}//${location.host}${hash}`}</a>
       ) : null}
 
       {error}

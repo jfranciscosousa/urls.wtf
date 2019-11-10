@@ -2,6 +2,6 @@
 
 A minimalistic url shortener.
 
-- [Gatsby](https://www.gatsbyjs.org/) for the frontend, deployed on [now.sh](https://now.sh)
-- Serverless express.js on [now.sh](https://now.sh)
+- [Gatsby](https://www.gatsbyjs.org/) for the frontend
+- [Netlify](https://www.netlify.com/) for hosting and running serverless functions
 - [Fauna](https://fauna.com/) for data storage

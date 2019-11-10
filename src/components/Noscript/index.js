@@ -7,9 +7,6 @@ import React from "react";
  * to the css modules transformation.
  *
  * Nevertheless I don't care what the reason is, and this seems to work.
- *
- * If you are a Javascript hater, go away.
- * You should't even reach this page if you are a regular person.
  */
 
 const rootStyles = {

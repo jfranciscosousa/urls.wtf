@@ -13,7 +13,7 @@ exports.handler = async (event, _context) => {
   } catch (error) {
     if (error.message === "invalid_url") {
       return {
-        statusCode: 400,
+        statusCode: 404,
         body: JSON.stringify({ error: error.message }),
       };
     }

@@ -11,20 +11,10 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-postcss",
     {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "assets",
-        path: `${__dirname}/src/assets/`,
-      },
-    },
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-sharp",
-    {
       resolve: "gatsby-plugin-root-import",
       options: {
         root: path.join(__dirname, "src"),
       },
     },
-    "gatsby-plugin-sitemap",
   ],
 };

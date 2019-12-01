@@ -17,15 +17,9 @@ function useNewUrlRequest() {
         url,
       });
 
-      setTimeout(
-        () => setState({ hash: `/u/${response.data.hash}`, loading: false }),
-        500,
-      );
+      setState({ hash: `/u/${response.data.hash}`, loading: false });
     } catch (error) {
-      setTimeout(
-        () => setState({ error: error.response.data.error, loading: false }),
-        500,
-      );
+      setState({ error: error.response.data.error, loading: false });
     }
   }
 

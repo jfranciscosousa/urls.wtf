@@ -15,7 +15,7 @@
     "url": "https://github.com/jfranciscosousa/urls.wtf"
   },
   "engines": {
-    "node": ">=10.16.x"
+    "node": ">=12.x"
   },
   "scripts": {
     "dev": "netlify dev",
@@ -26,37 +26,37 @@
   "dependencies": {
     "axios": "^0.19.0",
     "babel-polyfill": "^6.26.0",
-    "core-js": "^3.2.1",
-    "gatsby": "^2.15.17",
-    "gatsby-image": "^2.2.19",
-    "gatsby-link": "^2.2.13",
-    "gatsby-plugin-postcss": "^2.1.7",
-    "gatsby-plugin-react-helmet": "^3.1.7",
+    "core-js": "^3.6.0",
+    "gatsby": "^2.18.15",
+    "gatsby-image": "^2.2.37",
+    "gatsby-link": "^2.2.27",
+    "gatsby-plugin-postcss": "^2.1.18",
+    "gatsby-plugin-react-helmet": "^3.1.18",
     "gatsby-plugin-root-import": "^2.0.5",
     "graphql-request": "^1.8.2",
     "postcss-import": "^12.0.1",
     "precss": "^4.0.0",
     "prop-types": "^15.7.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "secure-random-string": "^1.1.2"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
     "dotenv": "^8.1.0",
-    "eslint": "^6.4.0",
+    "eslint": "^6.7.2",
     "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-prettier": "^6.3.0",
-    "eslint-plugin-import": "^2.18.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^2.0.1",
-    "netlify-cli": "^2.20.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "netlify-cli": "^2.25.0",
     "prettier": "^1.18.2",
-    "stylelint": "^11.0.0",
-    "stylelint-config-prettier": "^5.2.0",
+    "stylelint": "^12.0.0",
+    "stylelint-config-prettier": "^8.0.0",
     "stylelint-order": "^3.1.1"
   }
 }

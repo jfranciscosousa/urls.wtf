@@ -18,6 +18,9 @@ const Centered = styled.div`
   top: 50%;
   right: 50%;
 
+  max-width: 600px;
+  padding: 2rem;
+
   transform: translate(50%, -50%);
 `;
 

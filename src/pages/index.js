@@ -1,36 +1,54 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
+import styled from "@emotion/styled";
 
 import Layout from "root/components/Layout";
 import useForm from "root/shared/useForm";
+import useCreateUrl from "root/shared/useCreateUrl";
 
 const { location } = global;
 
-function useNewUrlRequest() {
-  const [state, setState] = useState({ loading: false });
+const Header = styled.h1`
+  margin-bottom: 4rem;
 
-  async function makeRequest(url) {
-    try {
-      setState({ loading: true });
+  font-size: 3rem;
+`;
 
-      const response = await axios.post("/.netlify/functions/create_url", {
-        url,
-      });
+const Paragraph = styled.p`
+  margin-bottom: 1rem;
+`;
 
-      setState({ hash: `/u/${response.data.hash}`, loading: false });
-    } catch (error) {
-      setState({ error: error.response.data.error, loading: false });
-    }
-  }
+const Form = styled.form`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
 
-  return { state, makeRequest };
-}
+const Button = styled.button`
+  height: 100%;
+  padding: 0.6rem;
+  margin-left: 1rem;
+
+  border-radius: 4px;
+  cursor: pointer;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  padding: 0.5rem;
+  margin: 2rem 0;
+
+  border-radius: 4px;
+`;
+
+const Link = styled.a`
+  color: white;
+`;
 
 function HomePage() {
   const {
     state: { loading, error, hash },
     makeRequest,
-  } = useNewUrlRequest();
+  } = useCreateUrl();
   const { values, handleChange } = useForm();
 
   async function handleSubmit(event) {
@@ -45,24 +63,26 @@ function HomePage() {
       description="minimalistic url shortener"
       keywords="url shortener open-source"
     >
-      <h1>urls.wtf</h1>
+      <Header>urls.wtf</Header>
 
-      <p>minimalistic url shortener.</p>
-      <p>no tracking.</p>
-      <p>no ads.</p>
+      <Paragraph>minimalistic url shortener.</Paragraph>
+      <Paragraph>no tracking.</Paragraph>
+      <Paragraph>no ads.</Paragraph>
 
-      <form onSubmit={handleSubmit}>
-        <input name="url" value={values.url || ""} onChange={handleChange} />
+      <Form onSubmit={handleSubmit}>
+        <Input name="url" value={values.url || ""} onChange={handleChange} />
 
-        <button type="submit" disabled={loading}>
+        <Button type="button" disabled={loading}>
           Go
-        </button>
-      </form>
+        </Button>
+      </Form>
 
       {loading ? "shortening your url" : null}
 
       {hash && !loading ? (
-        <a href={hash}>{`${location.protocol}//${location.host}${hash}`}</a>
+        <Link href={hash}>
+          {`${location.protocol}//${location.host}${hash}`}
+        </Link>
       ) : null}
 
       {error}

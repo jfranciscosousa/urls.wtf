@@ -1,5 +1,3 @@
-const axios = require("axios").default;
-
 // Credit https://gist.github.com/dperini/729294
 const urlRegex = new RegExp(
   "^" +
@@ -28,23 +26,6 @@ const urlRegex = new RegExp(
   "i",
 );
 
-/**
- * Visit the URL with a HEAD request
- * to check if the server is down or
- * the URL doesn't exist
- */
-async function visitUrl(url) {
-  try {
-    await axios.head(url);
-  } catch (error) {
-    if (!error.response) {
-      return false;
-    }
-  }
-
-  return true;
-}
-
 module.exports = async function validateUrl(url) {
-  return urlRegex.test(url) && visitUrl(url);
+  return urlRegex.test(url);
 };

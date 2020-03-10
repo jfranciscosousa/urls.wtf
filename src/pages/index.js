@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import Layout from "root/components/Layout";
 import useForm from "root/shared/useForm";
 import useCreateUrl from "root/shared/useCreateUrl";
-import useHasMounted from "../shared/useHasMounted";
+import useHasMounted from "root/shared/useHasMounted";
 
 const { location } = global;
 

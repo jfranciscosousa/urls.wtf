@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Helmet from "react-helmet";
+import Head from "next/head";
 import styled from "@emotion/styled";
 import { Global, css } from "@emotion/core";
 import { desktopOnly, tabletOnly, mobileOnly } from "root/styles/breakpoints";
@@ -45,7 +45,7 @@ const Root = styled.div`
 function Layout({ title, description, keywords, children }) {
   return (
     <>
-      <Helmet>
+      <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
@@ -57,7 +57,7 @@ function Layout({ title, description, keywords, children }) {
           href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
           rel="stylesheet"
         />
-      </Helmet>
+      </Head>
 
       <Global styles={css(resetStyles)} />
       <Global styles={globalStyles} />

@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import Layout from "root/components/Layout";
 import useForm from "root/shared/useForm";
 import useCreateUrl from "root/shared/useCreateUrl";
+import useHasMounted from "../shared/useHasMounted";
 
 const { location } = global;
 
@@ -50,6 +51,7 @@ function HomePage() {
     makeRequest,
   } = useCreateUrl();
   const { values, handleChange } = useForm();
+  const hasMounted = useHasMounted();
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -72,7 +74,7 @@ function HomePage() {
       <Form onSubmit={handleSubmit}>
         <Input name="url" value={values.url || ""} onChange={handleChange} />
 
-        <Button type="button" disabled={loading}>
+        <Button type="button" disabled={!hasMounted || loading}>
           Go
         </Button>
       </Form>

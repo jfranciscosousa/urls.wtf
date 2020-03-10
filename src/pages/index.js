@@ -33,10 +33,11 @@ const Button = styled.button`
   border-radius: 4px;
   cursor: pointer;
 
-  &["disabled"] {
+  &:disabled {
+    background-color: light-grey;
     color: grey;
 
-    cursor: wait;
+    cursor: not-allowed;
   }
 `;
 

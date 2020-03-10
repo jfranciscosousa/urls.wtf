@@ -4,7 +4,7 @@ import Head from "next/head";
 import styled from "@emotion/styled";
 import { Global, css } from "@emotion/core";
 import { desktopOnly, tabletOnly, mobileOnly } from "root/styles/breakpoints";
-import resetStyles from "root/shared/resetStyles";
+import normalizeStyles from "root/shared/normalize";
 
 const globalStyles = css`
   html {
@@ -59,7 +59,7 @@ function Layout({ title, description, keywords, children }) {
         />
       </Head>
 
-      <Global styles={css(resetStyles)} />
+      <Global styles={css(normalizeStyles)} />
       <Global styles={globalStyles} />
 
       <Root>{children}</Root>

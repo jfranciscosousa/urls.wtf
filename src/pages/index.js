@@ -29,8 +29,15 @@ const Button = styled.button`
   padding: 0.6rem;
   margin-left: 1rem;
 
+  background-color: white;
   border-radius: 4px;
   cursor: pointer;
+
+  &["disabled"] {
+    color: grey;
+
+    cursor: wait;
+  }
 `;
 
 const Input = styled.input`
@@ -74,7 +81,7 @@ function HomePage() {
       <Form onSubmit={handleSubmit}>
         <Input name="url" value={values.url || ""} onChange={handleChange} />
 
-        <Button type="button" disabled={!hasMounted || loading}>
+        <Button type="submit" disabled={!hasMounted || loading}>
           Go
         </Button>
       </Form>

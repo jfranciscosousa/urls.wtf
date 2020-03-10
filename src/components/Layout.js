@@ -46,7 +46,6 @@ function Layout({ title, description, keywords, children }) {
   return (
     <>
       <Head>
-        <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />

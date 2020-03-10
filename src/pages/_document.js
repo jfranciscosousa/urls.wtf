@@ -1,17 +1,24 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import { extractCritical } from "emotion-server";
 
 class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx);
+  static getInitialProps({ renderPage }) {
+    const page = renderPage();
+    const styles = extractCritical(page.html);
 
-    return { ...initialProps };
+    return { ...page, ...styles };
   }
 
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <style
+            data-emotion-css={this.props.ids.join(" ")}
+            dangerouslySetInnerHTML={{ __html: this.props.css }} // eslint-disable-next-line react/no-danger
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />

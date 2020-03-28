@@ -1,19 +1,16 @@
 {
   "extends": [
-    "airbnb",
+    "airbnb-base",
     "prettier"
   ],
   "plugins": [
     "prettier",
-    "react-hooks"
   ],
   "parser": "babel-eslint",
   "globals": {
-    "__DEVELOPMENT__": true,
-    "__PRODUCTION__": true,
-    "test": true,
     "document": true,
-    "window": true
+    "window": true,
+    "fetch": true
   },
   "rules": {
     "prettier/prettier": "error",
@@ -82,7 +79,8 @@
         "exceptions": [
           "_",
           "x",
-          "y"
+          "y",
+          "$"
         ]
       }
     ],
@@ -96,31 +94,7 @@
         "argsIgnorePattern": "^_"
       }
     ],
-    "jsx-a11y/anchor-is-valid": [
-      "error",
-      {
-        "components": [
-          "Link"
-        ],
-        "specialLink": [
-          "to"
-        ]
-      }
-    ],
-    "import/no-unresolved": [
-      2,
-      {
-        "ignore": [
-          "root/"
-        ]
-      }
-    ],
-    "react/jsx-filename-extension": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "react/jsx-props-no-spreading": "off",
-    "react/forbid-prop-types": "off",
-    "react/jsx-one-expression-per-line": "off",
+    "no-throw-literal": "off",
     "import/extensions": "off"
   }
 }

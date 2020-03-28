@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="{{ lang or meta.lang }}">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ description or meta.description }}">
+
+  <title>
+    {{ title or meta.title }}
+  </title>
+
+  <style>
+    {% postcss %}
+      {% include styles/index.css %}
+    {% endpostcss %}
+  </style>
+</head>
+
+<body>
+  <main>{{ content | safe }}</main>
+</body>
+
+</html>

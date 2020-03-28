@@ -1,0 +1,19 @@
+html {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+  margin-bottom: 4rem;
+
+  font-size: 3rem;
+}
+
+p,
+a {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: white;
+}

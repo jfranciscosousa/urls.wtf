@@ -14,6 +14,9 @@ exports.handler = async (event, _context) => {
     if (error.message === "invalid_url") {
       return {
         statusCode: 400,
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({ error: error.message }),
       };
     }
@@ -22,6 +25,9 @@ exports.handler = async (event, _context) => {
 
     return {
       statusCode: 500,
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ error: "i don't know wtf is going on" }),
     };
   }

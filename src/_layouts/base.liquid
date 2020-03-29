@@ -4,11 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{ description or meta.description }}">
+  <meta name="description" content="{{ description | default: metadata.description }}">
 
-  <title>
-    {{ title or meta.title }}
-  </title>
+  <title>{{ title | default: metadata.title }}</title>
 
   <style>
     {% postcss %}

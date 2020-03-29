@@ -1,4 +1,4 @@
-const { createUrl } = require("../api");
+const { createUrl } = require("../lib");
 
 exports.handler = async (event, _context) => {
   try {

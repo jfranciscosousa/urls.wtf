@@ -7,7 +7,7 @@ layout: base.liquid
 <p>no tracking.</p>
 <p>no ads.</p>
 
-<form class="url-form" onsubmit="GlobalSubmitUrl.onsubmit(event)">
+<form class="url-form" onsubmit="GlobalUrlController.onsubmit(event)">
   <input id="urlInput" name="url" placeholder="Type in your url..." aria-label="Enter an URL to shorten" />
   <button id="urlSubmitButton" disabled="true">Go!</button>
 </form>
@@ -22,5 +22,5 @@ layout: base.liquid
 <p style="display: none;" id="apiLoading">loading</p>
 
 <script>
-  {% include scripts/submitUrl.js %}
+  {% include scripts/urlController.js %}
 </script>

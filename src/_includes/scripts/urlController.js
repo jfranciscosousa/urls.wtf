@@ -1,7 +1,7 @@
 const { $, hideElement, showElement, postData } = globals;
 
 // eslint-disable-next-line no-unused-vars
-const GlobalSubmitUrl = (() => {
+const GlobalUrlController = (() => {
   const input = $("#urlInput");
   const submitButton = $("#urlSubmitButton");
   const apiLoading = $("#apiLoading");
@@ -28,8 +28,14 @@ const GlobalSubmitUrl = (() => {
       apiResultContainer.href = `${window.location.origin}/u/${response.data.hash}`;
     } catch (error) {
       showElement(apiErrorContainer);
-      apiErrorContainer.innerHTML =
-        (error.data && error.data.error) || "ugh, this shouldn't happen";
+
+      if (error.status === 429) {
+        apiErrorContainer.innerHTML =
+          "you are rate limited! try in an hour or so";
+      } else {
+        apiErrorContainer.innerHTML =
+          (error.data && error.data.error) || "ugh, this shouldn't happen";
+      }
     }
 
     submitButton.disabled = false;

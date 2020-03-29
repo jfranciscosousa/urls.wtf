@@ -10,7 +10,8 @@
   "globals": {
     "document": true,
     "window": true,
-    "fetch": true
+    "fetch": true,
+    "globals": true
   },
   "rules": {
     "prettier/prettier": "error",

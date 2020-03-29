@@ -37,11 +37,11 @@ const globals = {
     };
   },
 
-  hideElement: element => {
+  hideElement: (element) => {
     if (element) element.style = "display: none;";
   },
 
-  showElement: element => {
+  showElement: (element) => {
     if (element) element.style = "display: block;";
   },
 };

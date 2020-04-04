@@ -1,0 +1,9 @@
+.results {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.results > button {
+  margin-left: 1rem;
+}

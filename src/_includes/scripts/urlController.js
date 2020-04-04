@@ -7,6 +7,7 @@ const GlobalUrlController = (() => {
   const apiLoading = $("#apiLoading");
   const apiResultContainer = $("#apiResult");
   const apiErrorContainer = $("#apiError");
+  const copyButton = $("#copyButton");
 
   submitButton.disabled = false;
 
@@ -16,6 +17,7 @@ const GlobalUrlController = (() => {
     submitButton.disabled = true;
     hideElement(apiResultContainer);
     hideElement(apiErrorContainer);
+    hideElement(copyButton);
     showElement(apiLoading);
 
     try {
@@ -24,6 +26,7 @@ const GlobalUrlController = (() => {
       });
 
       showElement(apiResultContainer);
+      showElement(copyButton);
       apiResultContainer.innerHTML = `${window.location.origin}/u/${response.data.hash}`;
       apiResultContainer.href = `${window.location.origin}/u/${response.data.hash}`;
     } catch (error) {
@@ -42,5 +45,18 @@ const GlobalUrlController = (() => {
     hideElement(apiLoading);
   }
 
-  return { onsubmit: onFormSubmit };
+  async function onCopyClick() {
+    const inputElement = document.createElement("input");
+
+    inputElement.setAttribute("type", "text");
+    inputElement.style = "position: absolute; left: -1000px; top: -1000px";
+    document.body.appendChild(inputElement);
+    inputElement.value = apiResultContainer.innerHTML;
+    inputElement.select();
+    document.execCommand("copy");
+
+    inputElement.remove();
+  }
+
+  return { onFormSubmit, onCopyClick };
 })();

@@ -7,8 +7,13 @@ layout: base.liquid
 <p>no tracking.</p>
 <p>no ads.</p>
 
-<form class="url-form" onsubmit="GlobalUrlController.onsubmit(event)">
-  <input id="urlInput" name="url" placeholder="Type in your url..." aria-label="Enter an URL to shorten" />
+<form class="url-form" onsubmit="GlobalUrlController.onFormSubmit(event)">
+  <input
+    id="urlInput"
+    name="url"
+    placeholder="Type in your url..."
+    aria-label="Enter an URL to shorten"
+  />
   <button id="urlSubmitButton" disabled="true">Go!</button>
 </form>
 
@@ -17,9 +22,18 @@ layout: base.liquid
   <p>You can check the code. It's inlined right here.</p>
 </noscript>
 
-<p style="display: none;" id="apiError"></p>
-<a style="display: none;" id="apiResult"></a>
-<p style="display: none;" id="apiLoading">loading</p>
+<div class="results">
+  <p style="display: none;" id="apiError"></p>
+  <a style="display: none;" id="apiResult"></a>
+  <button
+    style="display: none;"
+    id="copyButton"
+    onclick="GlobalUrlController.onCopyClick()"
+  >
+    copy
+  </button>
+  <p style="display: none;" id="apiLoading">loading</p>
+</div>
 
 <script>
   {% include scripts/urlController.js %}

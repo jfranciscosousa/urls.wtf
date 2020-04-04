@@ -36,5 +36,7 @@ layout: base.liquid
 </div>
 
 <script>
-  {% include scripts/urlController.js %}
+  {% jsmin %}
+    {% include scripts/urlController.js %}
+  {% endjsmin %}
 </script>

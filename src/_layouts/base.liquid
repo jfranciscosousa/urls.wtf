@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ lang | default: meta.lang }}">
+<html lang="{{ lang | default: metadata.lang }}">
 
 <head>
   <meta charset="utf-8">
@@ -15,7 +15,9 @@
   </style>
 
   <script>
-    {% include scripts/globals.js %}
+    {% jsmin %}
+      {% include scripts/globals.js %}
+    {% endjsmin %}
   </script>
 </head>
 

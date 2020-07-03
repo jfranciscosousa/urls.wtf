@@ -1,17 +1,5 @@
-// eslint-disable-next-line
-if (process.env.NODE_ENV !== "production") require("dotenv").config();
-
-const { GraphQLClient } = require("graphql-request");
-const secureRandom = require("secure-random-string");
+const graphQLClient = require("./client");
 const validateUrl = require("./utils/validateUrl");
-
-const endpoint = "https://graphql.fauna.com/graphql";
-
-const graphQLClient = new GraphQLClient(endpoint, {
-  headers: {
-    authorization: `Bearer ${process.env.FAUNADB_SECRET}`,
-  },
-});
 
 async function findExistentHash(url) {
   const query = `

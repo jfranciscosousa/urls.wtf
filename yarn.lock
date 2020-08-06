@@ -9060,10 +9060,10 @@ section-matter@^1.0.0:
     extend-shallow "^2.0.1"
     kind-of "^6.0.0"
 
-secure-random-string@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/secure-random-string/-/secure-random-string-1.1.2.tgz#9cade0678acff7eeaf4517d110ea29e66530ebdc"
-  integrity sha512-o5aaoY4mEh209vOmt4wkUMF/uxGJV87ImeQdv1BnVQ7TOjemUiT6xgED3VpHTGz2AlmMfqBxS8C+UMZAxSOATA==
+secure-random-string@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/secure-random-string/-/secure-random-string-1.1.3.tgz#8076279d3450cd52948b890849a95d38a25362e3"
+  integrity sha512-298HxkJJp5mjpPhxDsN26S/2JmMaUIrQ4PxDI/F4fXKRBTOKendQ5i6JCkc+a8F8koLh0vdfwSCw8+RJkY7N6A==
 
 seek-bzip@^1.0.5:
   version "1.0.5"

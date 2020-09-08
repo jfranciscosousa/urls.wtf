@@ -1,7 +1,7 @@
-const graphQLClient = require("./client");
+const { gql, graphQLClient } = require("./client");
 
 module.exports = async function getTotalUrls() {
-  const query = `
+  const query = gql`
     {
       allHashedUrlsCount
     }

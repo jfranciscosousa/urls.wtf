@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-const globals = {
+window.globals = {
   $: document.querySelector.bind(document),
 
   postData: async (url, data) => {

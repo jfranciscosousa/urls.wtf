@@ -12,10 +12,10 @@ module.exports = {
     return result.css;
   },
 
-  jsmin: (code) => {
+  jsmin: async (code) => {
     if (process.env.NODE_ENV !== "production") return code;
 
-    const minified = Terser.minify(code, {
+    const minified = await Terser.minify(code, {
       mangle: false,
     });
 

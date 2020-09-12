@@ -1,7 +1,6 @@
-const { $, hideElement, showElement, postData } = globals;
+const { $, hideElement, showElement, postData } = window.globals;
 
-// eslint-disable-next-line no-unused-vars
-const GlobalUrlController = (() => {
+window.GlobalUrlController = (() => {
   const input = $("#urlInput");
   const submitButton = $("#urlSubmitButton");
   const apiLoading = $("#apiLoading");

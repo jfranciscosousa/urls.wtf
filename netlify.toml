@@ -1,7 +1,10 @@
 [build]
-  command = "yarn build"
+  command = "pnpm run build"
   functions = "api/functions"
   publish = "dist"
+
+[build.environment]
+    NPM_FLAGS="--prefix=/"
 
 [[redirects]]
   from = "/u/*"

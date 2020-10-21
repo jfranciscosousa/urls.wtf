@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+set -e
+source "./bin/functions"
+
+pp_info "setup" "Installing required languages"
+if not_installed "asdf"; then
+  pp_warn "setup" "
+    We are using asdf (https://github.com/asdf-vm/asdf) to manage tool
+    dependencies, since it was not found on your system we cannot ensure that you
+    are using the correct versions of all the tools. Please install it and run
+    this script again, or proceed at your own peril.
+  "
+else
+  set +e
+  asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git 2>/dev/null
+  set -e
+
+  asdf install
+fi
+
+if not_installed "npm"; then
+  pp_error "error" "npm was not detected on this system, you need it to install frontend dependencies"
+
+  exit -1
+fi
+
+pp_info "setup" "Installing dependencies with pnpm"
+npm install -g pnpm
+pnpm install
+
+pp_info "setup" "Done! Now get insideeee"

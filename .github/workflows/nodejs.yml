@@ -7,13 +7,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+
+    - uses: pnpm/action-setup@v1.2.0
+      with:
+        version: 5.8.0
+
     - name: Use Node.js 12.x
       uses: actions/setup-node@v1
       with:
         node-version: 12.x
-    - name: yarn install, lint
+
+    - name: Run linters
       run: |
-        yarn install
-        yarn lint
+        pnpm install
+        pnpm run lint
       env:
         CI: true

@@ -17,7 +17,8 @@
     "node": ">=12.x"
   },
   "scripts": {
-    "dev": "netlify dev -c 'yarn eleventy --serve'",
+    "dev": "netlify dev -c 'pnpm run eleventy --serve'",
+    "prebuild": "test \"$CI\" = true && npx pnpm install -r --store=node_modules/.pnpm-store || echo skiping pnpm install",
     "build": "NODE_ENV=production eleventy",
     "lint": "eslint src",
     "lint-styles": "stylelint \"src/**/*.css\" \"src/**/*.scss\" \"src/**/*.js\""

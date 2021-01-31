@@ -1,15 +1,9 @@
-const filters = require("./eleventy/filters.js");
 const transforms = require("./eleventy/transforms.js");
 const shortcodes = require("./eleventy/shortcodes.js");
 
 require("dotenv").config();
 
 module.exports = function(config) {
-  // Filters
-  Object.keys(filters).forEach(filterName => {
-    config.addFilter(filterName, filters[filterName]);
-  });
-
   // Transform
   Object.keys(transforms).forEach(transformName => {
     config.addTransform(transformName, transforms[transformName]);

@@ -41,6 +41,19 @@ export default function Index() {
   const { result, error } = useActionData() || {};
   const { state } = useTransition();
 
+  function handleCopy() {
+    const inputElement = document.createElement("input");
+
+    inputElement.setAttribute("type", "text");
+    inputElement.style = "position: absolute; left: -1000px; top: -1000px";
+    document.body.appendChild(inputElement);
+    inputElement.value = result;
+    inputElement.select();
+    document.execCommand("copy");
+
+    inputElement.remove();
+  }
+
   return (
     <main>
       <h1>urls.wtf</h1>
@@ -60,16 +73,23 @@ export default function Index() {
       </Form>
 
       <div className="results">
-        {result && (
+        {state !== "submitting" && (
           <>
-            <a href={result} target="_blank" rel="noopener noreferer">
-              {result}
-            </a>
-            <button>copy</button>
+            {result && (
+              <>
+                <a href={result} target="_blank" rel="noopener noreferer">
+                  {result}
+                </a>
+
+                <button data-result={result} onClick={handleCopy}>
+                  copy
+                </button>
+              </>
+            )}
+
+            {error && <p>{error}</p>}
           </>
         )}
-
-        {error && <p>{error}</p>}
 
         {state === "submitting" && <p>loading</p>}
       </div>

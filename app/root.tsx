@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Links,
   LiveReload,
@@ -9,11 +10,10 @@ import {
 } from "remix";
 import type { MetaFunction } from "remix";
 
-import rootStyles from "./styles/root.css";
-import React from "react";
+import styles from "./tailwind.css";
 
 export const links = () => {
-  return [{ rel: "stylesheet", href: rootStyles }];
+  return [{ rel: "stylesheet", href: styles }];
 };
 
 export const meta: MetaFunction = () => {
@@ -37,7 +37,7 @@ function Document({
 }) {
   return (
     <React.StrictMode>
-      <html lang="en">
+      <html lang="en" className="bg-bluePlaza text-white font-mono">
         <head>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width,initial-scale=1" />

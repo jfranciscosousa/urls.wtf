@@ -9,12 +9,6 @@ import {
 import createUrl from "~/lib/createUrl.server";
 import getTotalUrls from "~/lib/getTotalUrls.server";
 
-import indexStyles from "~/styles/index.css";
-
-export const links = () => {
-  return [{ rel: "stylesheet", href: indexStyles }];
-};
-
 export const loader: LoaderFunction = async () => {
   const totalUrls = await getTotalUrls();
 
@@ -55,47 +49,65 @@ export default function Index() {
   }
 
   return (
-    <main>
-      <h1>urls.wtf</h1>
-      <p>minimalistic url shortener.</p>
-      <p>no tracking.</p>
-      <p>no ads.</p>
+    <main className="max-w-2xl mx-auto pt-40">
+      <h1 className="text-6xl font-bold mb-12">urls.wtf</h1>
 
-      <Form className="url-form" method="post">
+      <div className="space-y-1">
+        <p>minimalistic url shortener.</p>
+        <p>no tracking.</p>
+        <p>no ads.</p>
+      </div>
+
+      <Form
+        className="text-bluePlaza flex items-center space-x-6 mt-12"
+        method="post"
+      >
         <input
-          id="urlInput"
           name="url"
           placeholder="Type in your url..."
           aria-label="Enter an URL to shorten"
+          className="p-2 w-full rounded"
         />
 
-        <button type="submit">Go!</button>
+        <button className="bg-white p-2 rounded h-full" type="submit">
+          Go!
+        </button>
       </Form>
 
-      <div className="results">
-        {state !== "submitting" && (
-          <>
-            {result && (
-              <>
-                <a href={result} target="_blank" rel="noopener noreferer">
-                  {result}
-                </a>
+      <div className="mt-6">
+        <div className="h-8">
+          {state !== "submitting" && (
+            <>
+              {result && (
+                <div className="flex items-center space-x-2">
+                  <a href={result} target="_blank" rel="noopener noreferer">
+                    {result}
+                  </a>
 
-                <button data-result={result} onClick={handleCopy}>
-                  copy
-                </button>
-              </>
-            )}
+                  <button
+                    className="bg-white text-bluePlaza px-2 rounded h-6"
+                    onClick={handleCopy}
+                  >
+                    copy
+                  </button>
+                </div>
+              )}
 
-            {error && <p>{error}</p>}
-          </>
-        )}
+              {error && <p>{error}</p>}
+            </>
+          )}
 
-        {state === "submitting" && <p>loading</p>}
+          {state === "submitting" && <p>loading</p>}
+        </div>
       </div>
 
-      <p style={{ marginTop: "4rem" }}>{totalUrls} urls registered so far</p>
-      <a href="https://github.com/jfranciscosousa/urls.wtf">View Github</a>
+      <p className="mt-16">{totalUrls} urls registered so far</p>
+      <a
+        className="block underline mt-2"
+        href="https://github.com/jfranciscosousa/urls.wtf"
+      >
+        View Github
+      </a>
     </main>
   );
 }

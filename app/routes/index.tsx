@@ -1,6 +1,8 @@
 import {
   ActionFunction,
   Form,
+  HeadersFunction,
+  json,
   LoaderFunction,
   useActionData,
   useLoaderData,
@@ -9,10 +11,16 @@ import {
 import createUrl from "~/lib/createUrl.server";
 import getTotalUrls from "~/lib/getTotalUrls.server";
 
+export const headers: HeadersFunction = () => {
+  return {
+    "Cache-Control": "s-maxage=300",
+  };
+};
+
 export const loader: LoaderFunction = async () => {
   const totalUrls = await getTotalUrls();
 
-  return { totalUrls };
+  return json({ totalUrls }, { headers: { "Cache-Control": "s-maxage=300" } });
 };
 
 export const action: ActionFunction = async ({ request }) => {

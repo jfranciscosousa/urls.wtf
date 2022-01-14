@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Link,
   Links,
   LiveReload,
   Meta,
@@ -45,8 +46,9 @@ function Document({
           <Meta />
           <Links />
         </head>
-        <body>
+        <body className="max-w-2xl mx-auto py-40 md:px-8 md:py-20">
           {children}
+
           <ScrollRestoration />
           <Scripts />
           {process.env.NODE_ENV === "development" && <LiveReload />}

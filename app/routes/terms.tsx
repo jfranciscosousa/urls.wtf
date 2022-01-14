@@ -30,7 +30,7 @@ export default function Terms() {
       </p>
 
       <p>
-        This vendors used to host the website can store extra information, like
+        The vendors used to host the website can store extra information, like
         IP addresses, country of origin and others. These are stats collected by
         the servers of{" "}
         <a
@@ -80,7 +80,7 @@ export default function Terms() {
       </p>
 
       <p>
-        TL,DR: do not fucking sue me for fuck sake. If any shit ass link gave
+        TL,DR: do not fucking sue me for fuck's sake. If any shit ass link gave
         you a virus it's not my fault, just send me an email and I'll delete the
         thing.
       </p>

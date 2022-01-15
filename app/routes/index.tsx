@@ -9,8 +9,7 @@ import {
   useLoaderData,
   useTransition,
 } from "remix";
-import createUrl from "~/lib/createUrl.server";
-import getTotalUrls from "~/lib/getTotalUrls.server";
+import { createUrl, getUrlCount } from "~/lib/urlService";
 
 export const headers: HeadersFunction = () => {
   return {
@@ -19,9 +18,9 @@ export const headers: HeadersFunction = () => {
 };
 
 export const loader: LoaderFunction = async () => {
-  const totalUrls = await getTotalUrls();
+  const urlCount = await getUrlCount();
 
-  return json({ totalUrls }, { headers: { "Cache-Control": "s-maxage=300" } });
+  return json({ urlCount }, { headers: { "Cache-Control": "s-maxage=300" } });
 };
 
 export const action: ActionFunction = async ({ request }) => {
@@ -40,7 +39,7 @@ export const action: ActionFunction = async ({ request }) => {
 };
 
 export default function Index() {
-  const { totalUrls } = useLoaderData();
+  const { urlCount } = useLoaderData();
   const { result, error } = useActionData() || {};
   const { state } = useTransition();
 
@@ -111,7 +110,7 @@ export default function Index() {
           </div>
         </div>
 
-        <p className="mt-16">{totalUrls} urls registered so far</p>
+        <p className="mt-16">{urlCount} urls registered so far</p>
       </main>
 
       <footer className="mt-24">

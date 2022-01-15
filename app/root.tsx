@@ -71,7 +71,7 @@ export function CatchBoundary() {
             access to.
           </p>
 
-          <a href="/">Go back home</a>
+          <a className="block mt-4 underline" href="/">Go back home</a>
         </>
       );
       break;
@@ -80,7 +80,7 @@ export function CatchBoundary() {
         <>
           <p>Oops! Looks like you tried to visit a page that does not exist.</p>
 
-          <a href="/">Go back home</a>
+          <a className="block mt-4 underline" href="/">Go back home</a>
         </>
       );
       break;
@@ -92,7 +92,7 @@ export function CatchBoundary() {
   return (
     <Document title={`${caught.status} ${caught.statusText}`}>
       <main>
-        <h1>
+        <h1 className="text-4xl font-bold mb-8">
           {caught.status}: {caught.statusText}
         </h1>
         {message}

@@ -1,5 +1,5 @@
 import secureRandomString from "secure-random-string";
-import graphqlRequest from "./graphqlRequest.server";
+import graphqlRequest from "../graphqlRequest.server";
 import validateUrl from "./validateUrl.server";
 
 async function findExistentHash(url: string) {
@@ -16,7 +16,7 @@ async function findExistentHash(url: string) {
   return data.hashedUrlFromUrl && data.hashedUrlFromUrl.hash;
 }
 
-export default async function createUrl(rawUrl: string): Promise<string> {
+export async function createUrl(rawUrl: string): Promise<string> {
   const url = /^https{0,1}:\/\//.test(rawUrl) ? rawUrl : `https://${rawUrl}`;
   const isValidUrl = validateUrl(url);
 
@@ -42,4 +42,32 @@ export default async function createUrl(rawUrl: string): Promise<string> {
   const data = await graphqlRequest(mutation, { hash, url });
 
   return data.createHashedUrl.hash;
+}
+
+export default async function getUrl(hash: string) {
+  const query = `
+    query getUrl($hash: String!) {
+      hashedUrlFromHash(hash: $hash) {
+        url
+      }
+    }
+  `;
+
+  const data = await graphqlRequest(query, { hash });
+
+  if (!data.hashedUrlFromHash) return null;
+
+  return data.hashedUrlFromHash.url;
+}
+
+export async function getUrlCount() {
+  const query = `
+    {
+      allHashedUrlsCount
+    }
+  `;
+
+  const data = await graphqlRequest(query);
+
+  return data.allHashedUrlsCount;
 }

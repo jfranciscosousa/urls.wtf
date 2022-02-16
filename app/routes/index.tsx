@@ -9,7 +9,8 @@ import {
   useLoaderData,
   useTransition,
 } from "remix";
-import { createUrl } from "~/lib/urlService";
+import { createUrl } from "~/data/urlService";
+import copyToClipboard from "~/lib/copyToClipboard";
 
 export const headers: HeadersFunction = () => {
   return {
@@ -37,16 +38,7 @@ export default function Index() {
   const { state } = useTransition();
 
   function handleCopy() {
-    const inputElement = document.createElement("input");
-
-    inputElement.setAttribute("type", "text");
-    inputElement.style = "position: absolute; left: -1000px; top: -1000px";
-    document.body.appendChild(inputElement);
-    inputElement.value = result;
-    inputElement.select();
-    document.execCommand("copy");
-
-    inputElement.remove();
+    copyToClipboard(result);
   }
 
   return (

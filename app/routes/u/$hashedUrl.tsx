@@ -1,5 +1,5 @@
 import { LoaderFunction } from "remix";
-import getUrl from "~/lib/urlService";
+import getUrl from "~/data/urlService";
 
 export const loader: LoaderFunction = async ({ params }) => {
   const url = await getUrl(params.hashedUrl as string);
@@ -11,7 +11,3 @@ export const loader: LoaderFunction = async ({ params }) => {
     headers: { Location: url, "Cache-Control": "s-maxage=300" },
   });
 };
-
-export default function UrlRedirect() {
-  return null;
-}

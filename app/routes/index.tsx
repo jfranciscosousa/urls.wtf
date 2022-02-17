@@ -2,11 +2,8 @@ import {
   ActionFunction,
   Form,
   HeadersFunction,
-  json,
   Link,
-  LoaderFunction,
   useActionData,
-  useLoaderData,
   useTransition,
 } from "remix";
 import { createUrl } from "~/data/urlService";
@@ -74,7 +71,7 @@ export default function Index() {
               <>
                 {result && (
                   <div className="flex items-center space-x-2">
-                    <a href={result} target="_blank" rel="noopener noreferer">
+                    <a className="underline" href={result} target="_blank" rel="noopener noreferer">
                       {result}
                     </a>
 

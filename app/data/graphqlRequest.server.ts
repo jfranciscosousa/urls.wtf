@@ -2,7 +2,7 @@ export default async function graphqlRequest(
   query: string,
   variables?: Record<string, any>
 ): Promise<any> {
-  const response = await fetch("https://graphql.fauna.scom/graphql", {
+  const response = await fetch("https://graphql.fauna.com/graphql", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

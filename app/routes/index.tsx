@@ -30,7 +30,7 @@ export const action: ActionFunction = async ({ request }) => {
   }
 };
 
-export default function Index() {
+export default function HomePage() {
   const { result, error } = useActionData() || {};
   const transition = useTransition();
   const isLoading =

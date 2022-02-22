@@ -6,7 +6,7 @@ export const headers: HeadersFunction = () => {
   };
 };
 
-export default function Terms() {
+export default function TermsPage() {
   return (
     <main className="space-y-8">
       <h1 className="text-6xl font-bold mb-12">urls.wtf</h1>

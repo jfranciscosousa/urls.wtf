@@ -19,11 +19,11 @@ export const action: ActionFunction = async ({ request }) => {
   try {
     const body = await request.formData();
     const hashedUrl = await createUrl(body.get("url") as string);
+    const proto = process.env.NODE_ENV === "production" ? "https" : "http";
+    const host = request.headers.get("host");
 
     return {
-      result: `${
-        process.env.NODE_ENV === "production" ? "https" : "http"
-      }://${request.headers.get("host")}/u/${hashedUrl}`,
+      result: `${proto}://${host}/u/${hashedUrl}`,
     };
   } catch (error) {
     return { error: (error as any).message };
@@ -71,7 +71,12 @@ export default function Index() {
               <>
                 {result && (
                   <div className="flex items-center space-x-2">
-                    <a className="underline" href={result} target="_blank" rel="noopener noreferer">
+                    <a
+                      className="underline"
+                      href={result}
+                      target="_blank"
+                      rel="noopener noreferer"
+                    >
                       {result}
                     </a>
 
@@ -88,7 +93,7 @@ export default function Index() {
               </>
             )}
 
-            {state === "submitting" && <p>loading</p>}
+            {(state === "submitting" || state === "loading") && <p>loading</p>}
           </div>
         </div>
       </main>

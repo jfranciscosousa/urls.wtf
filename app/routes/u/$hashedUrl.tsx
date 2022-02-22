@@ -7,7 +7,7 @@ export const loader: LoaderFunction = async ({ params }) => {
   if (!url) throw new Response(null, { status: 404 });
 
   return new Response(null, {
-    status: 301,
+    status: 301, // moved permanently
     headers: { Location: url, "Cache-Control": "s-maxage=300" },
   });
 };

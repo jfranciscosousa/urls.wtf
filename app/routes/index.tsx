@@ -32,8 +32,10 @@ export const action: ActionFunction = async ({ request }) => {
 
 export default function Index() {
   const { result, error } = useActionData() || {};
-  const { state } = useTransition();
-  const isLoading = state === "submitting" || state === "loading";
+  const transition = useTransition();
+  const isLoading =
+    (transition.state === "submitting" || transition.state === "loading") &&
+    transition.submission;
 
   function handleCopy() {
     copyToClipboard(result);

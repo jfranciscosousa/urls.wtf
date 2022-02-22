@@ -17,8 +17,8 @@ export const headers: HeadersFunction = () => {
 
 export const action: ActionFunction = async ({ request }) => {
   try {
-    const body = await request.formData();
-    const hashedUrl = await createUrl(body.get("url") as string);
+    const formData = await request.formData();
+    const hashedUrl = await createUrl(formData.get("url") as string);
     const proto = process.env.NODE_ENV === "production" ? "https" : "http";
     const host = request.headers.get("host");
 
@@ -33,6 +33,7 @@ export const action: ActionFunction = async ({ request }) => {
 export default function Index() {
   const { result, error } = useActionData() || {};
   const { state } = useTransition();
+  const isLoading = state === "submitting" || state === "loading";
 
   function handleCopy() {
     copyToClipboard(result);
@@ -67,7 +68,9 @@ export default function Index() {
 
         <div className="mt-6">
           <div className="h-8">
-            {state !== "submitting" && (
+            {isLoading && <p>loading</p>}
+
+            {!isLoading && (
               <>
                 {result && (
                   <div className="flex items-center space-x-2">
@@ -92,8 +95,6 @@ export default function Index() {
                 {error && <p>{error}</p>}
               </>
             )}
-
-            {(state === "submitting" || state === "loading") && <p>loading</p>}
           </div>
         </div>
       </main>

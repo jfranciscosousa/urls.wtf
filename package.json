@@ -6,14 +6,15 @@
   "scripts": {
     "build": "npm run build:css && remix build",
     "build:css": "tailwindcss -i ./styles/tailwind.css -o ./app/tailwind.css --minify",
-    "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
-    "dev:css": "tailwindcss -i ./styles/tailwind.css -o ./app/tailwind.css --watch",
-    "postinstall": "remix setup node"
+    "dev": "NODE_ENV=development netlify dev --offline",
+    "watch": "concurrently \"npm run watch:css\" \"remix watch\"",
+    "watch:css": "tailwindcss -i ./styles/tailwind.css -o ./app/tailwind.css --watch",
+    "start": "NODE_ENV=production netlify dev"
   },
   "dependencies": {
-    "@remix-run/react": "^1.6.3",
-    "@remix-run/serve": "^1.6.3",
-    "@remix-run/vercel": "^1.6.3",
+    "@remix-run/netlify-edge": "experimental-netlify-edge",
+    "@remix-run/react": "experimental-netlify-edge",
+    "@remix-run/server-runtime": "experimental-netlify-edge",
     "preact": "^10.8.2",
     "preact-render-to-string": "^5.2.0",
     "react": "npm:@preact/compat@^17.0.3",
@@ -22,7 +23,8 @@
     "secure-random-string": "^1.1.3"
   },
   "devDependencies": {
-    "@remix-run/dev": "^1.6.3",
+    "@remix-run/dev": "experimental-netlify-edge",
+    "@remix-run/eslint-config": "experimental-netlify-edge",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
     "@types/secure-random-string": "^1.1.1",

@@ -1,4 +1,5 @@
-import { HeadersFunction, LoaderFunction, useLoaderData } from "remix";
+import { useLoaderData } from "@remix-run/react";
+import { HeadersFunction, LoaderFunction } from "@remix-run/server-runtime";
 import getUrl from "~/data/urlService";
 
 export const loader: LoaderFunction = async ({ params }) => {

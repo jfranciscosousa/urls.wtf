@@ -6,7 +6,7 @@ export default async function graphqlRequest(
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${process.env.FAUNADB_SECRET}`,
+      authorization: `Bearer ${Deno.env.get("FAUNADB_SECRET")}`,
     },
     body: JSON.stringify({
       query,

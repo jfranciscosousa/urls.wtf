@@ -7,8 +7,8 @@ import {
   Scripts,
   ScrollRestoration,
   useCatch,
-} from "remix";
-import type { MetaFunction } from "remix";
+} from "@remix-run/react";
+import { MetaFunction } from "@remix-run/server-runtime";
 
 import styles from "./tailwind.css";
 
@@ -50,7 +50,7 @@ function Document({
 
           <ScrollRestoration />
           <Scripts />
-          {process.env.NODE_ENV === "development" && <LiveReload />}
+          <LiveReload />
         </body>
       </html>
     </React.StrictMode>
@@ -70,7 +70,9 @@ export function CatchBoundary() {
             access to.
           </p>
 
-          <a className="block mt-4 underline" href="/">Go back home</a>
+          <a className="block mt-4 underline" href="/">
+            Go back home
+          </a>
         </>
       );
       break;
@@ -79,7 +81,9 @@ export function CatchBoundary() {
         <>
           <p>Oops! Looks like you tried to visit a page that does not exist.</p>
 
-          <a className="block mt-4 underline" href="/">Go back home</a>
+          <a className="block mt-4 underline" href="/">
+            Go back home
+          </a>
         </>
       );
       break;

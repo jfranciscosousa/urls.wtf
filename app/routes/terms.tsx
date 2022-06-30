@@ -1,4 +1,5 @@
-import { HeadersFunction, Link } from "remix";
+import { Link } from "@remix-run/react";
+import { HeadersFunction } from "@remix-run/server-runtime";
 
 export const headers: HeadersFunction = () => {
   return {
@@ -76,7 +77,9 @@ export default function TermsPage() {
 
       <p>
         For enquiries reach out via email:{" "}
-        <a className="underline" href="mailto:urlswtf@gmail.com">urlswtf@gmail.com</a>
+        <a className="underline" href="mailto:urlswtf@gmail.com">
+          urlswtf@gmail.com
+        </a>
       </p>
 
       <p>

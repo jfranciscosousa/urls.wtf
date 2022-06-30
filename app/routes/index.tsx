@@ -1,11 +1,5 @@
-import {
-  ActionFunction,
-  Form,
-  HeadersFunction,
-  Link,
-  useActionData,
-  useTransition,
-} from "remix";
+import { Form, Link, useActionData, useTransition } from "@remix-run/react";
+import { ActionFunction, HeadersFunction } from "@remix-run/server-runtime";
 import { createUrl } from "~/data/urlService";
 import copyToClipboard from "~/lib/copyToClipboard";
 

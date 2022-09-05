@@ -1,5 +1,5 @@
-import secureRandomString from "secure-random-string";
 import graphqlRequest from "../graphqlRequest.server";
+import secureRandomString from "../secureRandomString.server";
 import validateUrl from "./validateUrl.server";
 
 async function findExistentHash(url: string) {
@@ -26,7 +26,7 @@ export async function createUrl(rawUrl: string): Promise<string> {
 
   if (existentHash) return existentHash;
 
-  const hash = secureRandomString({ length: 8, alphanumeric: true });
+  const hash = secureRandomString(8);
   const mutation = `
     mutation CreateHashedUrl($url: String!, $hash: String!) {
       createHashedUrl(data: {

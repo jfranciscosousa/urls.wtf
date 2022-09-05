@@ -110,11 +110,11 @@ export function ErrorBoundary({ error }: { error: Error }) {
   return (
     <Document title="Error!">
       <div>
-        <h1>Oh god everything is on fire please help.</h1>
+        <h1 className="text-2xl font-bold">Oh god everything is on fire please help.</h1>
 
-        <h2>A massive error exploded our servers. We are trying to fix it!</h2>
+        <h2 className="mb-4">A massive error exploded our servers. We are trying to fix it!</h2>
 
-        <a href="/">Go back home</a>
+        <a href="/" className="underline">Go back home</a>
       </div>
     </Document>
   );

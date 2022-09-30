@@ -1,25 +1,15 @@
 const CHARACTERS = "abcdefghijklmnopqrstuvwxyz0123456789";
 
 function getCryptoRandomBetween(min: number, max: number): number {
-  //the highest random value that crypto.getRandomValues could store in a Uint32Array
-  var MAX_VAL = 4294967295;
+  const MAX_VAL = 4294967295;
+  const numberOfRandomsNeeded = Math.ceil((max - min) / MAX_VAL);
+  let cryptoRandomNumbers = new Uint32Array(numberOfRandomsNeeded);
+  cryptoRandomNumbers = crypto.getRandomValues(cryptoRandomNumbers);
 
-  //find the number of randoms we'll need to generate in order to give every number between min and max a fair chance
-  var numberOfRandomsNeeded = Math.ceil((max - min) / MAX_VAL);
+  const sum = cryptoRandomNumbers.reduce((memo, current) => memo + current, 0);
+  const randomDecimal = sum / (MAX_VAL * numberOfRandomsNeeded);
 
-  //grab those randoms
-  var cryptoRandomNumbers = new Uint32Array(numberOfRandomsNeeded);
-  crypto.getRandomValues(cryptoRandomNumbers);
-
-  //add them together
-  for (var i = 0, sum = 0; i < cryptoRandomNumbers.length; i++) {
-    sum += cryptoRandomNumbers[i];
-  }
-
-  //and divide their sum by the max possible value to get a decimal
-  var randomDecimal = sum / (MAX_VAL * numberOfRandomsNeeded);
-
-  //if result is 1, retry. otherwise, return decimal.
+  // If result is 1, retry. otherwise, return decimal.
   return randomDecimal === 1
     ? getCryptoRandomBetween(min, max)
     : Math.floor(randomDecimal * (max - min + 1) + min);

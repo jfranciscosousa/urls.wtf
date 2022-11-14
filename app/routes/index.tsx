@@ -13,11 +13,10 @@ export const action: ActionFunction = async ({ request }) => {
   try {
     const formData = await request.formData();
     const hashedUrl = await createUrl(formData.get("url") as string);
-    const proto = process.env.NODE_ENV === "production" ? "https" : "http";
-    const host = request.headers.get("host");
+    const origin = request.headers.get("origin")
 
     return {
-      result: `${proto}://${host}/u/${hashedUrl}`,
+      result: `${origin}/u/${hashedUrl}`,
     };
   } catch (error) {
     return { error: (error as any).message };

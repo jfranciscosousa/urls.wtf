@@ -65,7 +65,7 @@ export default function TermsPage() {
 
       <p>
         The creator is <b>NOT RESPONSIBLE</b> for any link stored on the
-        platform. All of the URLs on shortened on the platform are ANONYMOUS in
+        platform. All of the URLs shortened on the platform are ANONYMOUS in
         nature, and the creator has <b>NO WAY</b> of finding out where they come
         from.
       </p>

@@ -1,9 +1,8 @@
 <script lang="ts">
-	import { applyAction, enhance } from "$app/forms";
-	import { page } from "$app/stores";
+	import { enhance } from "$app/forms";
 	import copyToClipboard from "$lib/copyToClipboard";
 	import type { ActionResult } from "@sveltejs/kit";
-	import type { ActionData, Action } from "./$types";
+	import type { ActionData } from "./newUrl/$types";
 
 	let input: HTMLInputElement;
 	let loading = false;
@@ -42,6 +41,7 @@
 	<form
 		class="text-bluePlaza flex items-center space-x-6 mt-12"
 		method="POST"
+		action="/newUrl"
 		use:enhance={() => {
 			loading = true;
 

@@ -20,7 +20,9 @@ function getRandomChar() {
 }
 
 export default function secureRandomString(length: number) {
-	for (var i = 0, str = ""; i < length; i++) str += getRandomChar();
+	let str = "";
+
+	for (let i = 0; i < length; i++) str += getRandomChar();
 
 	return str;
 }

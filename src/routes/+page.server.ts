@@ -1,5 +1,13 @@
 import { createUrl } from "$lib/server/urlService";
-import type { Actions } from "./$types";
+import type { Actions, PageServerLoad } from "./$types";
+
+export const load: PageServerLoad = async ({ setHeaders }) => {
+	setHeaders({
+		"cache-control": "s-maxage=3600",
+	});
+
+	return {};
+};
 
 export const actions: Actions = {
 	default: async ({ request }) => {

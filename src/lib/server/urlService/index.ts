@@ -3,7 +3,7 @@ import secureRandomString from "../secureRandomString.server";
 import validateUrl from "./validateUrl.server";
 
 async function findExistentHash(url: string) {
-	const query = `
+  const query = `
     query getHash($url: String!) {
       hashedUrlFromUrl(url: $url) {
         hash
@@ -11,23 +11,23 @@ async function findExistentHash(url: string) {
     }
   `;
 
-	const data = await graphqlRequest(query, { url });
+  const data = await graphqlRequest(query, { url });
 
-	return data.hashedUrlFromUrl && data.hashedUrlFromUrl.hash;
+  return data.hashedUrlFromUrl && data.hashedUrlFromUrl.hash;
 }
 
 export async function createUrl(rawUrl: string): Promise<string> {
-	const url = /^https{0,1}:\/\//.test(rawUrl) ? rawUrl : `https://${rawUrl}`;
-	const isValidUrl = validateUrl(url);
+  const url = /^https{0,1}:\/\//.test(rawUrl) ? rawUrl : `https://${rawUrl}`;
+  const isValidUrl = validateUrl(url);
 
-	if (!isValidUrl) throw new Error("invalid_url");
+  if (!isValidUrl) throw new Error("invalid_url");
 
-	const existentHash = await findExistentHash(url);
+  const existentHash = await findExistentHash(url);
 
-	if (existentHash) return existentHash;
+  if (existentHash) return existentHash;
 
-	const hash = secureRandomString(8);
-	const mutation = `
+  const hash = secureRandomString(8);
+  const mutation = `
     mutation CreateHashedUrl($url: String!, $hash: String!) {
       createHashedUrl(data: {
         hash: $hash
@@ -39,13 +39,13 @@ export async function createUrl(rawUrl: string): Promise<string> {
     }
   `;
 
-	const data = await graphqlRequest(mutation, { hash, url });
+  const data = await graphqlRequest(mutation, { hash, url });
 
-	return data.createHashedUrl.hash;
+  return data.createHashedUrl.hash;
 }
 
 export default async function getUrl(hash: string): Promise<string | undefined> {
-	const query = `
+  const query = `
     query getUrl($hash: String!) {
       hashedUrlFromHash(hash: $hash) {
         url
@@ -53,21 +53,21 @@ export default async function getUrl(hash: string): Promise<string | undefined> 
     }
   `;
 
-	const data = await graphqlRequest(query, { hash });
+  const data = await graphqlRequest(query, { hash });
 
-	if (!data.hashedUrlFromHash) return undefined;
+  if (!data.hashedUrlFromHash) return undefined;
 
-	return data.hashedUrlFromHash.url;
+  return data.hashedUrlFromHash.url;
 }
 
 export async function getUrlCount() {
-	const query = `
+  const query = `
     {
       allHashedUrlsCount
     }
   `;
 
-	const data = await graphqlRequest(query);
+  const data = await graphqlRequest(query);
 
-	return data.allHashedUrlsCount;
+  return data.allHashedUrlsCount;
 }

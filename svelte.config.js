@@ -4,16 +4,16 @@ import { vitePreprocess } from "@sveltejs/kit/vite";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	preprocess: [
-		vitePreprocess(),
-		preprocess({
-			postcss: true,
-		}),
-	],
+  preprocess: [
+    vitePreprocess(),
+    preprocess({
+      postcss: true,
+    }),
+  ],
 
-	kit: {
-		adapter: adapter({ edge: true }),
-	},
+  kit: {
+    adapter: adapter({ edge: true }),
+  },
 };
 
 export default config;

@@ -1,3 +1,4 @@
+import { getErrorMessage } from "$lib/getErrorMessage";
 import { createUrl } from "$lib/server/urlService";
 import type { Actions, PageServerLoad } from "./$types";
 
@@ -20,7 +21,7 @@ export const actions: Actions = {
         result: `${origin}/u/${hashedUrl}`,
       };
     } catch (error) {
-      return { error: (error as any).message };
+      return { error: getErrorMessage(error) };
     }
   },
 };

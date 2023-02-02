@@ -1,9 +1,12 @@
 import { FAUNADB_SECRET } from "$env/static/private";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type ResponseBody = any;
+
 export default async function graphqlRequest(
   query: string,
-  variables?: Record<string, any>,
-): Promise<any> {
+  variables?: Record<string, unknown>,
+): Promise<ResponseBody> {
   const response = await fetch("https://graphql.fauna.com/graphql", {
     method: "POST",
     headers: {

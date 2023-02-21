@@ -1,6 +1,6 @@
-import graphqlRequest from "../graphqlRequest.server";
-import secureRandomString from "../secureRandomString.server";
-import validateUrl from "./validateUrl.server";
+import graphqlRequest from "../graphqlRequest";
+import secureRandomString from "../secureRandomString";
+import validateUrl from "./validateUrl";
 
 async function findExistentHash(url: string) {
   const query = `

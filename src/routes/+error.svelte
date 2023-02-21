@@ -1,7 +1,11 @@
 <script>
   import { page } from "$app/stores";
 
-  $: console.log($page.error);
+  $: {
+    if ($page.status !== 404) {
+      console.error($page.error);
+    }
+  }
 </script>
 
 {#if $page.status === 404}

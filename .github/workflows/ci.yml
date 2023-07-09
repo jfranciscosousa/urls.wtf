@@ -37,12 +37,7 @@ jobs:
           restore-keys: ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies, check types and lint
-<<<<<<< Updated upstream
-        run: |
-          pnpm i --no-frozen-lockfile
-=======
         run: pnpm install
->>>>>>> Stashed changes
           pnpm run lint
           pnpm run ts-check
         env:

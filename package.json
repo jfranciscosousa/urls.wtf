@@ -14,7 +14,7 @@
     "ci": "npm run lint && npm run ts-check && npm run build"
   },
   "devDependencies": {
-    "@sveltejs/adapter-vercel": "^3.0.1",
+    "@sveltejs/adapter-vercel": "^3.0.2",
     "@sveltejs/kit": "^1.22.1",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",

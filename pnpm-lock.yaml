@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: false
   excludeLinksFromLockfile: false
 
+dependencies:
+  fauna:
+    specifier: ^1.2.0
+    version: 1.2.0
+
 devDependencies:
   '@sveltejs/adapter-vercel':
     specifier: ^3.0.3
@@ -1232,6 +1237,10 @@ packages:
     dependencies:
       reusify: 1.0.4
     dev: true
+
+  /fauna@1.2.0:
+    resolution: {integrity: sha512-YiNVB6uZwXOlVwVzwP3JNEVllPTU/U/in175tuPYZBtrk0ji4XRbxwFyk1CNJfJYFhzNaQV066U6KwhWtCpRdA==}
+    dev: false
 
   /file-entry-cache@6.0.1:
     resolution: {integrity: sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==}

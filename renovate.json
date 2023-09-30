@@ -2,5 +2,5 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base"],
   "rangeStrategy": "bump",
-  "schedule": ["0 0 1 * *"]
+  "schedule": ["before 3am on the first day of the month"]
 }

@@ -20,18 +20,15 @@
   <p>
     The vendors used to host the website can store extra information, like IP addresses, country of
     origin and others. These are stats collected by the servers of{" "}
-    <a class="underline" target="_blaink" rel="noopener noreferrer" href="https://cloudflare.com">
-      Cloudflare
-    </a>
-    ,{" "}
-    <a class="underline" target="_blaink" rel="noopener noreferrer" href="https://faunadb.com">
-      FaunaDB
-    </a>{" "}
-    and{" "}
+    <a class="underline" target="_blaink" rel="noopener noreferrer" href="https://cloudflare.com"
+      >Cloudflare</a
+    >,
+    <a class="underline" target="_blaink" rel="noopener noreferrer" href="https://faunadb.com"
+      >FaunaDB
+    </a>&nbsp;and
     <a class="underline" target="_blaink" rel="noopener noreferrer" href="https://vercel.com">
-      Vercel
-    </a>
-    , services used to operate the platform.
+      Vercel</a
+    >, services used to operate the platform and are not used by the creator of this website.
   </p>
 
   <p>

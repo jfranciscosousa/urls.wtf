@@ -1,13 +1,9 @@
 <script lang="ts">
   import { applyAction, enhance } from "$app/forms";
-  import copyToClipboard from "$lib/copyToClipboard";
+  import Copy from "$lib/Copy.svelte";
 
   let loading = $state(false);
   let { form } = $props();
-
-  function handleCopy() {
-    if (form?.result) copyToClipboard(form?.result);
-  }
 </script>
 
 <main>
@@ -53,9 +49,7 @@
             {form?.result}
           </a>
 
-          <button class="bg-white text-bluePlaza px-2 rounded h-6" onclick={handleCopy}>
-            copy
-          </button>
+          <Copy text={form?.result} />
         </div>
       {:else if form?.error}
         <p>{form?.error}</p>

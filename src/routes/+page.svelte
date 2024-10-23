@@ -1,10 +1,9 @@
 <script lang="ts">
   import { applyAction, enhance } from "$app/forms";
   import copyToClipboard from "$lib/copyToClipboard";
-  import type { ActionData } from "./$types";
 
-  let loading = false;
-  export let form: ActionData;
+  let loading = $state(false);
+  let { form } = $props();
 
   function handleCopy() {
     if (form?.result) copyToClipboard(form?.result);
@@ -32,7 +31,7 @@
       };
     }}
   >
-    <!-- svelte-ignore a11y-autofocus -->
+    <!-- svelte-ignore a11y_autofocus -->
     <input
       name="url"
       placeholder="Type in your url..."
@@ -54,7 +53,7 @@
             {form?.result}
           </a>
 
-          <button class="bg-white text-bluePlaza px-2 rounded h-6" on:click={handleCopy}>
+          <button class="bg-white text-bluePlaza px-2 rounded h-6" onclick={handleCopy}>
             copy
           </button>
         </div>

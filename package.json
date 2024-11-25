@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-vercel": "^5.4.6",
-    "@sveltejs/kit": "^2.7.4",
+    "@sveltejs/kit": "^2.8.3",
     "@sveltejs/vite-plugin-svelte": "^4.0.0",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",

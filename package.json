@@ -14,7 +14,7 @@
     "ci": "npm run lint && npm run ts-check && npm run build"
   },
   "devDependencies": {
-    "@sveltejs/adapter-vercel": "^5.4.6",
+    "@sveltejs/adapter-vercel": "^5.5.0",
     "@sveltejs/kit": "^2.7.4",
     "@sveltejs/vite-plugin-svelte": "^4.0.0",
     "autoprefixer": "^10.4.20",

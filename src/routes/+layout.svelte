@@ -1,12 +1,7 @@
 <script>
-  import "../app.postcss";
-  /**
-   * @typedef {Object} Props
-   * @property {import('svelte').Snippet} [children]
-   */
+  import "../app.css";
 
-  /** @type {Props} */
-  let { children } = $props();
+  const { children } = $props();
 </script>
 
-{@render children?.()}
+{@render children()}

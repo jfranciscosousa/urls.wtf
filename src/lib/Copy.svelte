@@ -43,7 +43,7 @@
   }
 </script>
 
-<button class="bg-white text-bluePlaza px-2 rounded h-6 w-[80px]" onclick={handleCopy}>
+<button class="bg-white text-bluePlaza px-2 rounded-sm h-6 w-[80px]" onclick={handleCopy}>
   {#if copied}
     copied
   {:else}

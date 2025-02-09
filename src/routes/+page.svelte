@@ -32,11 +32,11 @@
       name="url"
       placeholder="Type in your url..."
       aria-label="Enter an URL to shorten"
-      class="p-2 w-full rounded"
+      class="p-2 w-full rounded-sm bg-white"
       autofocus
     />
 
-    <button class="bg-white p-2 rounded h-full" type="submit"> Go! </button>
+    <button class="bg-white p-2 rounded-sm h-full" type="submit"> Go! </button>
   </form>
 
   <div class="mt-6">

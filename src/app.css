@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bluePlaza: #2f353b;
+  --font-mono: "Courier New", Courier, monospace;
+}

@@ -40,5 +40,3 @@ jobs:
         run: pnpm install
           pnpm run lint
           pnpm run ts-check
-        env:
-          FAUNADB_SECRET: placeholder

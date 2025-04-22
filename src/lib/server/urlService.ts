@@ -1,20 +1,18 @@
-import { Client, fql } from "fauna";
-import { FAUNADB_SECRET } from "$env/static/private";
-
+import prisma from "./prisma";
 import secureRandomString from "./secureRandomString";
 import validateUrl from "./validateUrl";
 
-const client = new Client({ secret: FAUNADB_SECRET });
-
-type HashedUrl = {
-  hash: string;
-  url: string;
-};
-
 async function getHash(url: string): Promise<string | undefined> {
-  const response = await client.query<{ data: HashedUrl[] }>(fql`HashedUrl.getHashByUrl(${url})`);
-
-  return response.data.data[0]?.hash;
+  return prisma.hashedUrl
+    .findFirst({
+      where: {
+        url,
+      },
+      select: {
+        hash: true,
+      },
+    })
+    .then((data) => data?.hash);
 }
 
 export async function createUrl(rawUrl: string): Promise<string> {
@@ -29,15 +27,28 @@ export async function createUrl(rawUrl: string): Promise<string> {
 
   const hash = secureRandomString(8);
 
-  const response = await client.query<HashedUrl>(
-    fql`HashedUrl.create({url: ${url}, hash: ${hash}})`,
-  );
-
-  return response.data.hash;
+  return prisma.hashedUrl
+    .create({
+      data: {
+        hash,
+        url,
+      },
+      select: {
+        hash: true,
+      },
+    })
+    .then((data) => data.hash);
 }
 
 export default async function getUrl(hash: string): Promise<string | undefined> {
-  const response = await client.query<{ data: HashedUrl[] }>(fql`HashedUrl.getUrlByHash(${hash})`);
-
-  return response.data.data[0]?.url;
+  return prisma.hashedUrl
+    .findUnique({
+      where: {
+        hash,
+      },
+      select: {
+        url: true,
+      },
+    })
+    .then((data) => data?.url);
 }

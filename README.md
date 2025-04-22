@@ -3,5 +3,5 @@
 A minimalistic url shortener.
 
 - [SvelteKit](https://kit.svelte.dev)
-- [Fauna](https://fauna.com/)
+- [Prisma Postgres](https://www.prisma.io/postgres)
 - [Vercel Edge](https://vercel.com/docs/concepts/edge-network/overview)

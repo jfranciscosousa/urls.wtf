@@ -32,15 +32,12 @@
       name="url"
       placeholder="Type in your url..."
       aria-label="Enter an URL to shorten"
-      class="p-2 w-full rounded-sm bg-gray-400"
+      class="p-2 w-full rounded-sm bg-white"
       autofocus
-      disabled
     />
 
-    <button class=" p-2 rounded-sm h-full bg-gray-400" type="submit" disabled>Go!</button>
+    <button class="bg-white p-2 rounded-sm h-full" type="submit"> Go! </button>
   </form>
-
-  <p class="mt-4">URL shortening is currently paused while we migrate databases. Existing URLs still work.</p>
 
   <div class="mt-6">
     <div class="h-8">
@@ -66,5 +63,5 @@
     View Github
   </a>
 
-  <a class="block underline mt-2" href="/terms">Terms of Service</a>
+  <a class="block underline mt-2" href="/privacy">Privacy policy</a>
 </footer>

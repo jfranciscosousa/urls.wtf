@@ -13,7 +13,6 @@ export const load: PageServerLoad = async ({ setHeaders }) => {
 export const actions: Actions = {
   default: async ({ request }) => {
     try {
-      throw new Error("disabled");
       const formData = await request.formData();
       const hashedUrl = await createUrl(formData.get("url") as string);
       const origin = request.headers.get("origin");

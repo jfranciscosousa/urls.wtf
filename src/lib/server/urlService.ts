@@ -49,6 +49,9 @@ export default async function getUrl(hash: string): Promise<string | undefined> 
       select: {
         url: true,
       },
+      cacheStrategy: {
+        ttl: 60 * 60 * 24 * 7, // 1 week
+      },
     })
     .then((data) => data?.url);
 }

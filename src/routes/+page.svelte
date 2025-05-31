@@ -36,7 +36,16 @@
       autofocus
     />
 
-    <button class="bg-white p-2 rounded-sm h-full" type="submit"> Go! </button>
+    <button
+      class="p-2 rounded-sm h-full"
+      class:bg-white={!loading}
+      class:bg-gray-500={loading}
+      class:cursor-not-allowed={loading}
+      type="submit"
+      disabled={loading}
+    >
+      Go!
+    </button>
   </form>
 
   <div class="mt-6">

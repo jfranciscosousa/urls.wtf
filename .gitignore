@@ -10,3 +10,9 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vercel
 generated/
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

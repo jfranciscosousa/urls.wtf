@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "engines": {
-    "node": ">=22.17.0"
+    "node": "22.x"
   },
   "scripts": {
     "clean": "rm -rf .svelte-kit .vercel node_modules",
@@ -48,5 +48,5 @@
     "@prisma/extension-accelerate": "^2.0.2",
     "@tailwindcss/postcss": "^4.1.11"
   },
-  "packageManager": "pnpm@10.12.4"
+  "packageManager": "pnpm@10.14.0"
 }

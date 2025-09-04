@@ -1,3 +1,4 @@
+import { ERRORS } from "$lib/getErrorMessage";
 import prisma from "./prisma";
 import secureRandomString from "./secureRandomString";
 import validateUrl from "./validateUrl";
@@ -19,7 +20,7 @@ export async function createUrl(rawUrl: string): Promise<string> {
   const url = /^https{0,1}:\/\//.test(rawUrl) ? rawUrl : `https://${rawUrl}`;
   const isValidUrl = validateUrl(url);
 
-  if (!isValidUrl) throw new Error("invalid_url");
+  if (!isValidUrl) throw new Error(ERRORS.INVALID_URL);
 
   const existentHash = await getHash(url);
 

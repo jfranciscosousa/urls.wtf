@@ -26,8 +26,8 @@
   "devDependencies": {
     "@playwright/test": "^1.55.0",
     "@sveltejs/adapter-vercel": "^5.10.2",
-    "@sveltejs/kit": "^2.37.0",
-    "@sveltejs/vite-plugin-svelte": "^6.1.4",
+    "@sveltejs/kit": "^2.37.1",
+    "@sveltejs/vite-plugin-svelte": "^6.2.0",
     "@types/node": "^24.3.1",
     "autoprefixer": "^10.4.21",
     "npm-run-all2": "^8.0.4",
@@ -35,12 +35,12 @@
     "prettier": "^3.6.2",
     "prettier-plugin-svelte": "^3.4.0",
     "prisma": "^6.15.0",
-    "svelte": "^5.38.6",
+    "svelte": "^5.38.8",
     "svelte-check": "^4.3.1",
     "svelte-preprocess": "^6.0.3",
     "tailwindcss": "^4.1.13",
     "typescript": "^5.9.2",
-    "vite": "^7.1.4"
+    "vite": "^7.1.5"
   },
   "type": "module",
   "dependencies": {

@@ -14,14 +14,14 @@ jobs:
       - uses: marocchino/tool-versions-action@v1
         id: versions
 
-      - uses: actions/setup-node@v5
-        with:
-          node-version: ${{ steps.versions.outputs.nodejs }}
-
       - uses: pnpm/action-setup@v4
         with:
           version: ${{ steps.versions.outputs.pnpm }}
           run_install: false
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: ${{ steps.versions.outputs.nodejs }}
 
       - name: Get pnpm store directory
         id: pnpm-cache

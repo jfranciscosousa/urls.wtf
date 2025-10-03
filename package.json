@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "engines": {
-    "node": "22.x"
+    "node": "22.20.0"
   },
   "scripts": {
     "clean": "rm -rf .svelte-kit .vercel node_modules",

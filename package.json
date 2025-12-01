@@ -3,14 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "engines": {
-    "node": "22.21.1"
+    "node": "22.x"
   },
   "scripts": {
     "clean": "rm -rf .svelte-kit .vercel node_modules",
     "dev": "run-p dev:svelte db",
     "dev:svelte": "vite dev",
     "build": "vite build",
-    "build-prod": "prisma generate && prisma db push && vite build",
+    "build-prod": "svelte-kit sync && prisma generate && prisma db push && vite build",
     "preview": "vite preview",
     "ts-check": "svelte-kit sync && prisma generate && svelte-check --tsconfig ./tsconfig.json",
     "ts-check:watch": "svelte-kit sync && prisma generate && svelte-check --tsconfig ./tsconfig.json --watch",

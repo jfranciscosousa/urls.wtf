@@ -21,6 +21,8 @@ export const actions: Actions = {
         result: `${origin}/u/${hashedUrl}`,
       };
     } catch (error) {
+      console.error(error);
+
       return { error: getErrorMessage(error) };
     }
   },

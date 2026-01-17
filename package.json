@@ -49,5 +49,5 @@
     "@prisma/extension-accelerate": "^3.0.1",
     "@tailwindcss/postcss": "^4.1.18"
   },
-  "packageManager": "pnpm@10.24.0"
+  "packageManager": "pnpm@10.28.0"
 }

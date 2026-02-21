@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "engines": {
-    "node": "22.x"
+    "node": "24.x"
   },
   "scripts": {
     "clean": "rm -rf .svelte-kit .vercel node_modules",
@@ -25,30 +25,30 @@
     "test:e2e:ui": "playwright test --ui"
   },
   "devDependencies": {
-    "@playwright/test": "^1.57.0",
-    "@sveltejs/adapter-vercel": "^6.3.0",
-    "@sveltejs/kit": "^2.49.5",
+    "@playwright/test": "^1.58.2",
+    "@sveltejs/adapter-vercel": "^6.3.2",
+    "@sveltejs/kit": "^2.53.0",
     "@sveltejs/vite-plugin-svelte": "^6.2.4",
-    "@types/node": "^25.0.9",
-    "autoprefixer": "^10.4.23",
-    "dotenv": "^17.2.3",
+    "@types/node": "^25.3.0",
+    "autoprefixer": "^10.4.24",
+    "dotenv": "^17.3.1",
     "npm-run-all2": "^8.0.4",
     "postcss": "^8.5.6",
-    "prettier": "^3.8.0",
-    "prettier-plugin-svelte": "^3.4.1",
-    "prisma": "^7.2.0",
-    "svelte": "^5.46.4",
-    "svelte-check": "^4.3.5",
+    "prettier": "^3.8.1",
+    "prettier-plugin-svelte": "^3.5.0",
+    "prisma": "^7.4.1",
+    "svelte": "^5.53.1",
+    "svelte-check": "^4.4.3",
     "svelte-preprocess": "^6.0.3",
-    "tailwindcss": "^4.1.18",
+    "tailwindcss": "^4.2.0",
     "typescript": "^5.9.3",
     "vite": "^7.3.1"
   },
   "dependencies": {
-    "@prisma/adapter-pg": "^7.2.0",
-    "@prisma/client": "7.2.0",
+    "@prisma/adapter-pg": "^7.4.1",
+    "@prisma/client": "7.4.1",
     "@prisma/extension-accelerate": "^3.0.1",
-    "@tailwindcss/postcss": "^4.1.18"
+    "@tailwindcss/postcss": "^4.2.0"
   },
   "packageManager": "pnpm@10.28.0"
 }

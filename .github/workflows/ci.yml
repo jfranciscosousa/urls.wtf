@@ -125,7 +125,7 @@ jobs:
             kill $DATABASE_PID || true
           fi
 
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
@@ -133,7 +133,7 @@ jobs:
           retention-days: 30
 
       - name: Upload coverage
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: coverage

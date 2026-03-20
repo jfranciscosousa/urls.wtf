@@ -2,5 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
   "rangeStrategy": "bump",
-  "schedule": ["before 3am on the first day of the month"]
+  "schedule": ["before 3am every day"],
+  "platformAutomerge": true,
+  "automerge": true,
+  "automergeType": "pr"
 }

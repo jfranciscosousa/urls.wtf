@@ -5,5 +5,6 @@
   "schedule": ["before 3am every day"],
   "platformAutomerge": true,
   "automerge": true,
-  "automergeType": "pr"
+  "automergeType": "pr",
+  "rebaseWhen": "auto"
 }

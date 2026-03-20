@@ -14,7 +14,7 @@ jobs:
       - uses: marocchino/tool-versions-action@v2
         id: versions
 
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v5
         with:
           version: ${{ steps.versions.outputs.pnpm }}
           run_install: false
@@ -57,7 +57,7 @@ jobs:
       - uses: marocchino/tool-versions-action@v2
         id: versions
 
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v5
         with:
           version: ${{ steps.versions.outputs.pnpm }}
           run_install: false

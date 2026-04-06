@@ -23,28 +23,28 @@
     "test:e2e:ui": "playwright test --ui"
   },
   "devDependencies": {
-    "@playwright/test": "^1.58.2",
+    "@playwright/test": "^1.59.1",
     "@sveltejs/adapter-vercel": "^6.3.3",
-    "@sveltejs/kit": "^2.55.0",
+    "@sveltejs/kit": "^2.56.1",
     "@sveltejs/vite-plugin-svelte": "^7.0.0",
     "@tailwindcss/vite": "^4.2.2",
     "@types/node": "^25.5.2",
     "autoprefixer": "^10.4.27",
-    "dotenv": "^17.3.1",
+    "dotenv": "^17.4.1",
     "postcss": "^8.5.8",
     "prettier": "^3.8.1",
     "prettier-plugin-svelte": "^3.5.1",
-    "prisma": "^7.5.0",
-    "svelte": "^5.54.1",
+    "prisma": "^7.6.0",
+    "svelte": "^5.55.1",
     "svelte-check": "^4.4.6",
     "svelte-preprocess": "^6.0.3",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3",
-    "vite": "^8.0.3"
+    "vite": "^8.0.5"
   },
   "dependencies": {
-    "@prisma/adapter-pg": "^7.5.0",
-    "@prisma/client": "7.5.0",
+    "@prisma/adapter-pg": "^7.6.0",
+    "@prisma/client": "7.6.0",
     "@prisma/extension-accelerate": "^3.0.1",
     "@tailwindcss/postcss": "^4.2.2",
     "concurrently": "^9.2.1"

@@ -44,13 +44,13 @@ importers:
         version: 25.5.2
       autoprefixer:
         specifier: ^10.4.27
-        version: 10.4.27(postcss@8.5.8)
+        version: 10.4.27(postcss@8.5.9)
       dotenv:
         specifier: ^17.4.1
         version: 17.4.1
       postcss:
-        specifier: ^8.5.8
-        version: 8.5.8
+        specifier: ^8.5.9
+        version: 8.5.9
       prettier:
         specifier: ^3.8.1
         version: 3.8.1
@@ -68,7 +68,7 @@ importers:
         version: 4.4.6(picomatch@4.0.4)(svelte@5.55.1)(typescript@6.0.2)
       svelte-preprocess:
         specifier: ^6.0.3
-        version: 6.0.3(postcss@8.5.8)(svelte@5.55.1)(typescript@6.0.2)
+        version: 6.0.3(postcss@8.5.9)(svelte@5.55.1)(typescript@6.0.2)
       tailwindcss:
         specifier: ^4.2.2
         version: 4.2.2
@@ -1290,8 +1290,8 @@ packages:
   postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
 
-  postcss@8.5.8:
-    resolution: {integrity: sha512-OW/rX8O/jXnm82Ey1k44pObPtdblfiuWnrd8X7GJ7emImCOstunGbXUpp7HdBrFQX6rJzn3sPT397Wp5aCwCHg==}
+  postcss@8.5.9:
+    resolution: {integrity: sha512-7a70Nsot+EMX9fFU3064K/kdHWZqGVY+BADLyXc8Dfv+mTLLVl6JzJpPaCZ2kQL9gIJvKXSLMHhqdRRjwQeFtw==}
     engines: {node: ^10 || ^12 || >=14}
 
   postgres-array@2.0.0:
@@ -2095,7 +2095,7 @@ snapshots:
       '@alloc/quick-lru': 5.2.0
       '@tailwindcss/node': 4.2.2
       '@tailwindcss/oxide': 4.2.2
-      postcss: 8.5.8
+      postcss: 8.5.9
       tailwindcss: 4.2.2
 
   '@tailwindcss/vite@4.2.2(vite@8.0.5(@types/node@25.5.2)(jiti@2.6.1))':
@@ -2174,13 +2174,13 @@ snapshots:
 
   async-sema@3.1.1: {}
 
-  autoprefixer@10.4.27(postcss@8.5.8):
+  autoprefixer@10.4.27(postcss@8.5.9):
     dependencies:
       browserslist: 4.28.1
       caniuse-lite: 1.0.30001777
       fraction.js: 5.3.4
       picocolors: 1.1.1
-      postcss: 8.5.8
+      postcss: 8.5.9
       postcss-value-parser: 4.2.0
 
   aws-ssl-profiles@1.1.2: {}
@@ -2640,7 +2640,7 @@ snapshots:
 
   postcss-value-parser@4.2.0: {}
 
-  postcss@8.5.8:
+  postcss@8.5.9:
     dependencies:
       nanoid: 3.3.11
       picocolors: 1.1.1
@@ -2805,11 +2805,11 @@ snapshots:
     transitivePeerDependencies:
       - picomatch
 
-  svelte-preprocess@6.0.3(postcss@8.5.8)(svelte@5.55.1)(typescript@6.0.2):
+  svelte-preprocess@6.0.3(postcss@8.5.9)(svelte@5.55.1)(typescript@6.0.2):
     dependencies:
       svelte: 5.55.1
     optionalDependencies:
-      postcss: 8.5.8
+      postcss: 8.5.9
       typescript: 6.0.2
 
   svelte@5.55.1:
@@ -2876,7 +2876,7 @@ snapshots:
     dependencies:
       lightningcss: 1.32.0
       picomatch: 4.0.4
-      postcss: 8.5.8
+      postcss: 8.5.9
       rolldown: 1.0.0-rc.12
       tinyglobby: 0.2.15
     optionalDependencies:

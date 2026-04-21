@@ -27,7 +27,7 @@
     "@sveltejs/adapter-vercel": "^6.3.3",
     "@sveltejs/kit": "^2.57.1",
     "@sveltejs/vite-plugin-svelte": "^7.0.0",
-    "@tailwindcss/vite": "^4.2.2",
+    "@tailwindcss/vite": "^4.2.4",
     "@types/node": "^25.6.0",
     "autoprefixer": "^10.5.0",
     "dotenv": "^17.4.2",
@@ -38,15 +38,15 @@
     "svelte": "^5.55.4",
     "svelte-check": "^4.4.6",
     "svelte-preprocess": "^6.0.3",
-    "tailwindcss": "^4.2.2",
+    "tailwindcss": "^4.2.4",
     "typescript": "^6.0.3",
-    "vite": "^8.0.8"
+    "vite": "^8.0.9"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.7.0",
     "@prisma/client": "7.7.0",
     "@prisma/extension-accelerate": "^3.0.1",
-    "@tailwindcss/postcss": "^4.2.2",
+    "@tailwindcss/postcss": "^4.2.4",
     "concurrently": "^9.2.1"
   },
   "packageManager": "pnpm@10.33.0"

@@ -8,3 +8,8 @@ onlyBuiltDependencies:
   - esbuild
   - prisma
   - svelte-preprocess
+allowBuilds:
+  '@prisma/engines': true
+  esbuild: true
+  prisma: true
+  svelte-preprocess: true

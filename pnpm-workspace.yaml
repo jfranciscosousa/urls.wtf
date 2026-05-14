@@ -1,3 +1,6 @@
+shamefullyHoist: true
+engineStrict: true
+minimumReleaseAge: 7200
 onlyBuiltDependencies:
   - "@prisma/client"
   - "@prisma/engines"

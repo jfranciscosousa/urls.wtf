@@ -40,8 +40,7 @@ jobs:
       - name: Lint
         run: pnpm run lint
 
-      - name: "Type check (non-blocking: TypeScript 7 compatibility)"
-        continue-on-error: true
+      - name: Type check
         run: pnpm run ts-check
         env:
           DATABASE_URL: mocked

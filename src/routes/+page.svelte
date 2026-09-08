@@ -1,6 +1,6 @@
 <script lang="ts">
   import { applyAction, enhance } from "$app/forms";
-  import Copy from "$lib/Copy.svelte";
+  import Copy from "#lib/Copy.svelte";
 
   let loading = $state(false);
   let { form } = $props();

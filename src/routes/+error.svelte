@@ -1,14 +1,14 @@
 <script>
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
 
   $effect(() => {
-    if ($page.status !== 404) {
-      console.error($page.error);
+    if (page.status !== 404) {
+      console.error(page.error);
     }
   });
 </script>
 
-{#if $page.status === 404}
+{#if page.status === 404}
   <div>
     <h1 class="text-2xl font-bold">Not found</h1>
 

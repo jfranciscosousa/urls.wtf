@@ -1,5 +1,5 @@
-import { getErrorMessage } from "$lib/getErrorMessage";
-import { createUrl } from "$lib/server/urlService";
+import { getErrorMessage } from "#lib/getErrorMessage.js";
+import { createUrl } from "#lib/server/urlService.js";
 import type { Actions, PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ({ setHeaders }) => {

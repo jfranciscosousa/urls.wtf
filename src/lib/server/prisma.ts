@@ -1,5 +1,5 @@
-import { DATABASE_ADAPTER, DATABASE_URL } from "$env/static/private";
-import { PrismaClient } from "$lib/generated/prisma/client";
+import { DATABASE_ADAPTER, DATABASE_URL } from "$app/env/private";
+import { PrismaClient } from "#lib/generated/prisma/client.js";
 import { withAccelerate } from "@prisma/extension-accelerate";
 import { PrismaPg } from "@prisma/adapter-pg";
 

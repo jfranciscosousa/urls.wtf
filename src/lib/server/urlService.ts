@@ -30,10 +30,9 @@ export async function createUrl(rawUrl: string): Promise<string> {
   const [createdUrl] = await db
     .insert(hashedUrls)
     .values({ hash, url })
-    .onConflictDoNothing({ target: hashedUrls.url })
     .returning({ hash: hashedUrls.hash });
 
-  return createdUrl?.hash ?? (await getHash(url))!;
+  return createdUrl!.hash;
 }
 
 export default async function getUrl(hash: string): Promise<string | undefined> {

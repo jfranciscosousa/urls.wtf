@@ -9,7 +9,7 @@ export const hashedUrls = pgTable("HashedUrl", {
     .primaryKey()
     .$defaultFn(() => crypto.randomUUID()),
   hash: text().notNull().unique(),
-  url: text().notNull().unique(),
+  url: text().notNull(),
   createdAt: timestamp({ precision: 3 }).notNull().defaultNow(),
   updatedAt: timestamp({ precision: 3 })
     .notNull()

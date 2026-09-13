@@ -6,7 +6,7 @@ BEGIN
                 CREATE TABLE "HashedUrl" (
                         "id" text PRIMARY KEY,
                         "hash" text NOT NULL UNIQUE,
-                        "url" text NOT NULL UNIQUE,
+                        "url" text NOT NULL,
                         "createdAt" timestamp(3) DEFAULT now() NOT NULL,
                         "updatedAt" timestamp(3) NOT NULL
                 );

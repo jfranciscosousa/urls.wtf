@@ -91,15 +91,6 @@
       "schema": "public",
       "table": "HashedUrl",
       "entityType": "uniques"
-    },
-    {
-      "nameExplicit": false,
-      "columns": ["url"],
-      "nullsNotDistinct": false,
-      "name": "HashedUrl_url_key",
-      "schema": "public",
-      "table": "HashedUrl",
-      "entityType": "uniques"
     }
   ],
   "renames": []

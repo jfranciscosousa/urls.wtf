@@ -50,6 +50,20 @@ jobs:
     name: Playwright Tests
     timeout-minutes: 15
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_DB: urls_wtf
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d urls_wtf"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       - uses: actions/checkout@v6
@@ -100,30 +114,15 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: pnpm exec playwright install-deps
 
-      - name: Start database
-        run: |
-          pnpm prisma dev &
-          echo "DATABASE_PID=$!" >> $GITHUB_ENV
+      - name: Apply database migrations
+        run: pnpm run db:migrate
         env:
-          DATABASE_URL: postgres://postgres:postgres@localhost:51214/template1?sslmode=disable&connection_limit=1&connect_timeout=0&max_idle_connection_lifetime=0&pool_timeout=0&single_use_connections=true&socket_timeout=0
-
-      - name: Wait for database
-        run: |
-          timeout 30 bash -c 'until nc -z localhost 51213; do sleep 1; done'
-          sleep 2
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432/urls_wtf
 
       - name: Run Playwright tests
         run: pnpm playwright test
         env:
-          DATABASE_URL: postgres://postgres:postgres@localhost:51214/template1?sslmode=disable&connection_limit=1&connect_timeout=0&max_idle_connection_lifetime=0&pool_timeout=0&single_use_connections=true&socket_timeout=0
-          DATABASE_ADAPTER: pg
-
-      - name: Stop database
-        if: always()
-        run: |
-          if [ ! -z "$DATABASE_PID" ]; then
-            kill $DATABASE_PID || true
-          fi
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432/urls_wtf
 
       - uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}

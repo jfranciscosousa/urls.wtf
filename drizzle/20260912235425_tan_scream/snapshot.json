@@ -1,0 +1,106 @@
+{
+  "version": "8",
+  "dialect": "postgres",
+  "id": "e36844bc-2b60-4adc-9f8b-d531d03f291c",
+  "prevIds": ["00000000-0000-0000-0000-000000000000"],
+  "ddl": [
+    {
+      "isRlsEnabled": false,
+      "name": "HashedUrl",
+      "entityType": "tables",
+      "schema": "public"
+    },
+    {
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "HashedUrl"
+    },
+    {
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "hash",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "HashedUrl"
+    },
+    {
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "url",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "HashedUrl"
+    },
+    {
+      "type": "timestamp(3)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "name": "createdAt",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "HashedUrl"
+    },
+    {
+      "type": "timestamp(3)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "updatedAt",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "HashedUrl"
+    },
+    {
+      "columns": ["id"],
+      "nameExplicit": false,
+      "name": "HashedUrl_pkey",
+      "schema": "public",
+      "table": "HashedUrl",
+      "entityType": "pks"
+    },
+    {
+      "nameExplicit": false,
+      "columns": ["hash"],
+      "nullsNotDistinct": false,
+      "name": "HashedUrl_hash_key",
+      "schema": "public",
+      "table": "HashedUrl",
+      "entityType": "uniques"
+    },
+    {
+      "nameExplicit": false,
+      "columns": ["url"],
+      "nullsNotDistinct": false,
+      "name": "HashedUrl_url_key",
+      "schema": "public",
+      "table": "HashedUrl",
+      "entityType": "uniques"
+    }
+  ],
+  "renames": []
+}

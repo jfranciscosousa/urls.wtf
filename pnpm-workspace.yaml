@@ -2,14 +2,9 @@ shamefullyHoist: true
 engineStrict: true
 minimumReleaseAge: 7200
 onlyBuiltDependencies:
-  - "@prisma/client"
-  - "@prisma/engines"
   - "@tailwindcss/oxide"
   - esbuild
-  - prisma
   - svelte-preprocess
 allowBuilds:
-  "@prisma/engines": true
   esbuild: true
-  prisma: true
   svelte-preprocess: true

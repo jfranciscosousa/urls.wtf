@@ -9,7 +9,7 @@ const config: UserConfig = {
     tailwindcss(),
     sveltekit({
       preprocess: vitePreprocess(),
-      adapter: adapter({ regions: ["iad1"] }),
+      adapter: adapter({ regions: ["iad1"], runtime: "nodejs24.x" }),
     }),
   ],
 };

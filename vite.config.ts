@@ -1,16 +1,15 @@
-import tailwindcss from "@tailwindcss/vite";
-import { sveltekit } from "@sveltejs/kit/vite";
 import adapter from "@sveltejs/adapter-vercel";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
-import { sveltePreprocess } from "svelte-preprocess";
+import tailwindcss from "@tailwindcss/vite";
+import { sveltekit } from "@sveltejs/kit/vite";
 import type { UserConfig } from "vite";
 
 const config: UserConfig = {
   plugins: [
     tailwindcss(),
     sveltekit({
-      adapter: adapter({ runtime: "nodejs24.x", regions: ["iad1"] }),
-      preprocess: [vitePreprocess(), sveltePreprocess({ postcss: true })],
+      preprocess: vitePreprocess(),
+      adapter: adapter({ regions: ["iad1"], runtime: "nodejs24.x" }),
     }),
   ],
 };

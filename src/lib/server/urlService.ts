@@ -1,4 +1,4 @@
-import { ERRORS } from "$lib/getErrorMessage";
+import { ERRORS } from "#lib/getErrorMessage.js";
 import prisma from "./prisma";
 import secureRandomString from "./secureRandomString";
 import validateUrl from "./validateUrl";

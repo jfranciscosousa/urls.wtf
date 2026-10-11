@@ -24,4 +24,5 @@ loads `.env.test` explicitly and applies migrations only to that test database.
 
 ## Dependency audits
 
-Current audit findings are acceptable because the affected code is unused in production. If audit findings change, update this note.
+The dependency audit reports no known vulnerabilities after updating the transitive
+`source-map-js` dependency to 1.2.2. If audit findings change, update this note.

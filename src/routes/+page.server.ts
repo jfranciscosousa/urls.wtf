@@ -1,4 +1,5 @@
-import { getErrorMessage } from "#lib/getErrorMessage.js";
+import { ERRORS, getErrorMessage } from "#lib/getErrorMessage.js";
+import { Effect } from "effect";
 import { createUrl } from "#lib/server/urlService.js";
 import type { Actions, PageServerLoad } from "./$types";
 
@@ -14,12 +15,20 @@ export const actions: Actions = {
   default: async ({ request }) => {
     try {
       const formData = await request.formData();
-      const hashedUrl = await createUrl(formData.get("url") as string);
-      const origin = request.headers.get("origin");
-
-      return {
-        result: `${origin}/u/${hashedUrl}`,
-      };
+      return await Effect.runPromise(
+        createUrl(formData.get("url")).pipe(
+          Effect.map((hash) => ({
+            result: `${request.headers.get("origin")}/u/${hash}`,
+          })),
+          Effect.catchTags({
+            InvalidUrl: () => Effect.succeed({ error: ERRORS.INVALID_URL }),
+            DatabaseError: (error) => {
+              console.error(error);
+              return Effect.succeed({ error: ERRORS.UNKNOWN_ERROR });
+            },
+          }),
+        ),
+      );
     } catch (error) {
       console.error(error);
 

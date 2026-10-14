@@ -22,6 +22,14 @@ provision and start it through `mise`, then create two local databases:
 Never point `.env.test` at a development or production database. `pnpm test`
 loads `.env.test` explicitly and applies migrations only to that test database.
 
+## Learning more about Effect
+
+This repository uses the Effect TypeScript library.
+
+Before writing any Effect code, read `node_modules/effect/AGENTS.md` completely.
+Follow its links when required. For APIs and concepts not covered by the guide,
+search the installed source in `node_modules/effect/src`.
+
 ## Dependency audits
 
 The dependency audit reports no known vulnerabilities after updating the transitive

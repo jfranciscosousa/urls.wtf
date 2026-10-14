@@ -171,7 +171,10 @@ importers:
         version: 4.3.3
       drizzle-orm:
         specifier: 1.0.0-rc.4
-        version: 1.0.0-rc.4(postgres@3.4.9)
+        version: 1.0.0-rc.4(effect@4.0.4)(postgres@3.4.9)
+      effect:
+        specifier: 4.0.4
+        version: 4.0.4
       postgres:
         specifier: ^3.4.9
         version: 3.4.9
@@ -943,6 +946,9 @@ packages:
         optional: true
       zod:
         optional: true
+
+  effect@4.0.4:
+    resolution: {integrity: sha512-Sr50OeVSC3M5UkoUYUhFf3EULryhGaZZUf6OzDHTvaznOw7HRlxOKdF3/4nvQXHL22StOyMG3Cvo8Bt7xUp+Ng==}
 
   electron-to-chromium@1.5.439:
     resolution: {integrity: sha512-qu6QIPXhsb+CRcAiTMNjR4A1y/7tCYKkKjr5CZXRVih6qkDf79peZ2BpEU3qoDBNCRrcy3Mra3X9nG5oruuA7Q==}
@@ -1829,9 +1835,12 @@ snapshots:
       get-tsconfig: 4.14.3
       jiti: 2.7.0
 
-  drizzle-orm@1.0.0-rc.4(postgres@3.4.9):
+  drizzle-orm@1.0.0-rc.4(effect@4.0.4)(postgres@3.4.9):
     optionalDependencies:
+      effect: 4.0.4
       postgres: 3.4.9
+
+  effect@4.0.4: {}
 
   electron-to-chromium@1.5.439: {}
 

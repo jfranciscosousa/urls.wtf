@@ -23,29 +23,29 @@
     "test:e2e:ui": "playwright test --ui"
   },
   "devDependencies": {
-    "@playwright/test": "^1.63.0",
-    "@sveltejs/adapter-vercel": "^7.0.0",
-    "@sveltejs/kit": "^3.0.1",
+    "@playwright/test": "^1.65.0",
+    "@sveltejs/adapter-vercel": "^7.0.2",
+    "@sveltejs/kit": "^3.1.1",
     "@sveltejs/vite-plugin-svelte": "^7.3.1",
-    "@tailwindcss/vite": "^4.3.3",
-    "@types/node": "^24.19.1",
-    "autoprefixer": "^10.6.1",
-    "dotenv": "^18.0.5",
-    "drizzle-kit": "1.0.0-rc.4",
-    "postcss": "^8.5.29",
-    "prettier": "^3.9.9",
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/node": "^26.6.6",
+    "autoprefixer": "^10.6.2",
+    "dotenv": "^18.0.9",
+    "drizzle-kit": "1.0.0-rc.5",
+    "postcss": "^8.5.32",
+    "prettier": "^3.9.10",
     "prettier-plugin-svelte": "^4.1.1",
-    "svelte": "^5.57.2",
-    "svelte-check": "^4.7.6",
-    "tailwindcss": "^4.3.3",
+    "svelte": "^5.57.3",
+    "svelte-check": "^4.7.8",
+    "tailwindcss": "^4.3.5",
     "typescript": "^6.0.3",
-    "vite": "^8.3.3"
+    "vite": "^8.3.6"
   },
   "dependencies": {
-    "@tailwindcss/postcss": "^4.3.3",
-    "drizzle-orm": "1.0.0-rc.4",
-    "effect": "4.0.4",
-    "postgres": "^3.4.9"
+    "@tailwindcss/postcss": "^4.3.5",
+    "drizzle-orm": "1.0.0-rc.5",
+    "effect": "4.1.2",
+    "postgres": "^4.1.0"
   },
   "engines": {
     "node": "26.x"

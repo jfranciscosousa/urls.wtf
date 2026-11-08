@@ -32,5 +32,8 @@ search the installed source in `node_modules/effect/src`.
 
 ## Dependency audits
 
-The dependency audit reports no known vulnerabilities after updating the transitive
-`source-map-js` dependency to 1.2.2. If audit findings change, update this note.
+The dependency audit reports one low-severity finding: `deepmerge` 4.3.1 (via
+`@sveltejs/vite-plugin-svelte`, build time only). No patched version exists. The
+`glob` and `minimatch` overrides in `pnpm-workspace.yaml` fix the advisories in
+`@vercel/nft`. Remove the overrides when `@vercel/nft` requires patched versions.
+If audit findings change, update this note.

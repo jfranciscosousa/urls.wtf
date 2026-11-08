@@ -1,13 +1,12 @@
 shamefullyHoist: true
 engineStrict: true
 minimumReleaseAge: 1440
-onlyBuiltDependencies:
-  - "@tailwindcss/oxide"
-  - esbuild
-  - svelte-preprocess
 allowBuilds:
   esbuild: true
   svelte-preprocess: true
 overrides:
   glob: ">=14.0.2"
   minimatch: ">=11.0.1"
+permissions:
+  drizzle-kit:
+    skills: true

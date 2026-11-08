@@ -1,29 +1,36 @@
 {
-  "version": "8",
+  "type": "base",
+  "version": "9",
   "dialect": "postgres",
   "id": "e36844bc-2b60-4adc-9f8b-d531d03f291c",
   "prevIds": ["00000000-0000-0000-0000-000000000000"],
+  "footprints": [
+    {
+      "statementType": "create_table",
+      "statementTarget": ["table", "public", "HashedUrl"],
+      "writes": [
+        "s|tbl|public.HashedUrl",
+        "n|tbl|public.HashedUrl",
+        "e|tbl|public.HashedUrl",
+        "n|rel|public.HashedUrl",
+        "n|type|public.HashedUrl",
+        "n|rel|public.HashedUrl_pkey",
+        "n|rel|public.HashedUrl_hash_key"
+      ],
+      "reads": ["n|sch|public"]
+    }
+  ],
   "ddl": [
     {
-      "isRlsEnabled": false,
+      "schema": "public",
       "name": "HashedUrl",
-      "entityType": "tables",
-      "schema": "public"
+      "isRlsEnabled": false,
+      "entityType": "tables"
     },
     {
-      "type": "text",
-      "typeSchema": null,
-      "notNull": true,
-      "dimensions": 0,
-      "default": null,
-      "generated": null,
-      "identity": null,
+      "schema": "public",
+      "table": "HashedUrl",
       "name": "id",
-      "entityType": "columns",
-      "schema": "public",
-      "table": "HashedUrl"
-    },
-    {
       "type": "text",
       "typeSchema": null,
       "notNull": true,
@@ -31,12 +38,12 @@
       "default": null,
       "generated": null,
       "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "HashedUrl",
       "name": "hash",
-      "entityType": "columns",
-      "schema": "public",
-      "table": "HashedUrl"
-    },
-    {
       "type": "text",
       "typeSchema": null,
       "notNull": true,
@@ -44,12 +51,25 @@
       "default": null,
       "generated": null,
       "identity": null,
-      "name": "url",
-      "entityType": "columns",
-      "schema": "public",
-      "table": "HashedUrl"
+      "entityType": "columns"
     },
     {
+      "schema": "public",
+      "table": "HashedUrl",
+      "name": "url",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "HashedUrl",
+      "name": "createdAt",
       "type": "timestamp(3)",
       "typeSchema": null,
       "notNull": true,
@@ -57,12 +77,12 @@
       "default": "now()",
       "generated": null,
       "identity": null,
-      "name": "createdAt",
-      "entityType": "columns",
-      "schema": "public",
-      "table": "HashedUrl"
+      "entityType": "columns"
     },
     {
+      "schema": "public",
+      "table": "HashedUrl",
+      "name": "updatedAt",
       "type": "timestamp(3)",
       "typeSchema": null,
       "notNull": true,
@@ -70,28 +90,24 @@
       "default": null,
       "generated": null,
       "identity": null,
-      "name": "updatedAt",
-      "entityType": "columns",
-      "schema": "public",
-      "table": "HashedUrl"
+      "entityType": "columns"
     },
     {
-      "columns": ["id"],
-      "nameExplicit": false,
-      "name": "HashedUrl_pkey",
       "schema": "public",
       "table": "HashedUrl",
+      "name": "HashedUrl_pkey",
+      "columns": ["id"],
+      "nameExplicit": false,
       "entityType": "pks"
     },
     {
+      "schema": "public",
+      "table": "HashedUrl",
+      "name": "HashedUrl_hash_key",
       "nameExplicit": false,
       "columns": ["hash"],
       "nullsNotDistinct": false,
-      "name": "HashedUrl_hash_key",
-      "schema": "public",
-      "table": "HashedUrl",
       "entityType": "uniques"
     }
-  ],
-  "renames": []
+  ]
 }

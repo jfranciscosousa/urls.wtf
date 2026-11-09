@@ -37,3 +37,10 @@ The dependency audit reports one low-severity finding: `deepmerge` 4.3.1 (via
 `glob` and `minimatch` overrides in `pnpm-workspace.yaml` fix the advisories in
 `@vercel/nft`. Remove the overrides when `@vercel/nft` requires patched versions.
 If audit findings change, update this note.
+
+## Runtime and dependency maintenance
+
+- Vercel's function runtime is set in `vite.config.ts` (`runtime: "nodejs26.x"`). Change it together with `engines.node` in `package.json`.
+- TypeScript stays on 6. `svelte-check` and SvelteKit do not support 7 yet. Move to 7 when both support it.
+- `drizzle-kit` rc.5 needs snapshots that `drizzle-kit up` writes. After a `drizzle-kit` update, `drizzle-kit generate` must report no schema changes.
+- Only the `build-prod` script runs database migrations. Other builds do not touch the database.

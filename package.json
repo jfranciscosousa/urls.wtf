@@ -50,7 +50,7 @@
   "engines": {
     "node": "26.x"
   },
-  "packageManager": "pnpm@12.18.0",
+  "packageManager": "pnpm@12.21.0",
   "imports": {
     "#lib": "./src/lib/index.js",
     "#lib/*": "./src/lib/*"

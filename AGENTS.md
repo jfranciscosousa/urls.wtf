@@ -21,6 +21,9 @@ provision and start it through `mise`, then create two local databases:
 
 Never point `.env.test` at a development or production database. `pnpm test`
 loads `.env.test` explicitly and applies migrations only to that test database.
+To test without changing environment files, set `DATABASE_URL` to an isolated
+local test database, then run `pnpm run db:migrate` and `pnpm run test:e2e`.
+Playwright uses port 4173. Use an isolated network namespace when working alongside other local tests.
 
 ## Learning more about Effect
 
@@ -30,17 +33,12 @@ Before writing any Effect code, read `node_modules/effect/AGENTS.md` completely.
 Follow its links when required. For APIs and concepts not covered by the guide,
 search the installed source in `node_modules/effect/src`.
 
-## Dependency audits
-
-The dependency audit reports one low-severity finding: `deepmerge` 4.3.1 (via
-`@sveltejs/vite-plugin-svelte`, build time only). No patched version exists. The
-`glob` and `minimatch` overrides in `pnpm-workspace.yaml` fix the advisories in
-`@vercel/nft`. Remove the overrides when `@vercel/nft` requires patched versions.
-If audit findings change, update this note.
-
 ## Runtime and dependency maintenance
 
 - Vercel's function runtime is set in `vite.config.ts` (`runtime: "nodejs26.x"`). Change it together with `engines.node` in `package.json`.
-- TypeScript stays on 6. `svelte-check` and SvelteKit do not support 7 yet. Move to 7 when both support it.
-- `drizzle-kit` rc.5 needs snapshots that `drizzle-kit up` writes. After a `drizzle-kit` update, `drizzle-kit generate` must report no schema changes.
-- Only the `build-prod` script runs database migrations. Other builds do not touch the database.
+- CI uses `.tool-versions` for Node and pnpm. Keep the `packageManager` field and the CI PostgreSQL service image in sync with `.tool-versions`.
+- Keep TypeScript at 6.0.3 until SvelteKit and `svelte-check` support 7. Both declare TypeScript 6 peers, and TypeScript 7.0.2 fails in `svelte-kit sync` (checked 2026-11-18).
+- Keep `drizzle-kit` and `drizzle-orm` at 1.0.0-rc.5 until stable 1.x releases are available. This is the latest matched release candidate. Keep the 1.x snapshot format and check that `drizzle-kit generate` reports no changes after each update (checked 2026-11-18).
+- Keep the 24-hour pnpm release-age policy. It withheld SvelteKit 3.3.1, adapter-vercel 7.0.4, Prettier's Svelte plugin 4.2.0, Svelte 5.58.0, and `@vercel/nft` 1.11.7 on 2026-11-18. Retry when the releases meet the age requirement.
+- [GHSA-fc5q-39xc-vjpf](https://github.com/advisories/GHSA-fc5q-39xc-vjpf) affects transitive `picomatch` 4.0.7 in the build and check tools. No patched version is available, and the production audit is clean. Recheck when `picomatch` publishes a fix (checked 2026-11-18).
+- Only `build-prod` runs database migrations as part of the build. Use `build` for checks that must not write to the database.
